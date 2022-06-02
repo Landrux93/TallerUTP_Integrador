@@ -69,8 +69,9 @@ public class ModeloCliente {
         try {
             conn = MySQLConexion.getConexion();
             String sql = "{call agregarcliente(?,?,?,?,?,?,?,?,?)}";
-            pstm = conn.prepareStatement(sql);
-            pstm.setInt(1, cliente.getDni());
+            pstm = conn.prepareCall(sql);
+            
+            pstm.setInt(1, cliente.getDni());   
             pstm.setString(2, cliente.getNombrecliente());
             pstm.setString(3, cliente.getApellidopaternocliente());
             pstm.setString(4, cliente.getApellidomaternocliente());
