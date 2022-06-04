@@ -4,243 +4,184 @@
     Author     : LENOVO
 --%>
 
+<%@page import="Entidad.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Actualizar cliente</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Actualizar cliente</title>
 
-	<!-- Normalize V8.0.1 -->
-	<link rel="stylesheet" href="./css/normalize.css">
+    <!-- Normalize V8.0.1 -->
+    <link rel="stylesheet" href="./css/normalize.css">
 
-	<!-- Bootstrap V4.3 -->
-	<link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- Bootstrap V4.3 -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
 
-	<!-- Bootstrap Material Design V4.0 -->
-	<link rel="stylesheet" href="./css/bootstrap-material-design.min.css">
+    <!-- Bootstrap Material Design V4.0 -->
+    <link rel="stylesheet" href="./css/bootstrap-material-design.min.css">
 
-	<!-- Font Awesome V5.9.0 -->
-	<link rel="stylesheet" href="./css/all.css">
+    <!-- Font Awesome V5.9.0 -->
+    <link rel="stylesheet" href="./css/all.css">
 
-	<!-- Sweet Alerts V8.13.0 CSS file -->
-	<link rel="stylesheet" href="./css/sweetalert2.min.css">
+    <!-- Sweet Alerts V8.13.0 CSS file -->
+    <link rel="stylesheet" href="./css/sweetalert2.min.css">
 
-	<!-- Sweet Alert V8.13.0 JS file-->
-	<script src="./js/sweetalert2.min.js" ></script>
+    <!-- Sweet Alert V8.13.0 JS file-->
+    <script src="./js/sweetalert2.min.js" ></script>
 
-	<!-- jQuery Custom Content Scroller V3.1.5 -->
-	<link rel="stylesheet" href="./css/jquery.mCustomScrollbar.css">
-	
-	<!-- General Styles -->
-	<link rel="stylesheet" href="./css/style.css">
+    <!-- jQuery Custom Content Scroller V3.1.5 -->
+    <link rel="stylesheet" href="./css/jquery.mCustomScrollbar.css">
+
+    <!-- General Styles -->
+    <link rel="stylesheet" href="./css/style.css">
 
 
-</head>
-<body>
-	
-	<!-- Main container -->
-	<main class="full-box main-container">
-		<!-- Nav lateral -->
-			<section class="full-box nav-lateral">
-			<div class="full-box nav-lateral-bg show-nav-lateral"></div>
-			<div class="full-box nav-lateral-content">
-				<figure class="full-box nav-lateral-avatar">
-					<i class="far fa-times-circle show-nav-lateral"></i>
-					<img src="./assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
-					<figcaption class="roboto-medium text-center">
-						Alma Valer <br><small class="roboto-condensed-light">Administrador</small>
-					</figcaption>
-				</figure>
-				<div class="full-box nav-lateral-bar"></div>
-				<nav class="full-box nav-lateral-menu">
-					<ul>
-						<li>
-							<a href="home.jsp"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Dashboard</a>
-						</li>
+  </head>
+  <body>
+    <%
+      Cliente cliente = (Cliente) request.getAttribute("cliente");
+    %>
+    <!-- Main container -->
+    <main class="full-box main-container">
+      <!-- Nav lateral -->
+      <%@include file="Nav-Bar.jsp" %>
+      <!-- Page content -->
+      <section class="full-box page-content">
+        <nav class="full-box navbar-info">
+          <a href="#" class="float-left show-nav-lateral">
+            <i class="fas fa-exchange-alt"></i>
+          </a>
+          <a href="user-update.jsp">
+            <i class="fas fa-user-cog"></i>
+          </a>
+          <a href="#" class="btn-exit-system">
+            <i class="fas fa-power-off"></i>
+          </a>
+        </nav>
 
-						<li>
-							<a href="#" class="nav-btn-submenu"><i class="fas fa-users fa-fw"></i> &nbsp; Clientes <i class="fas fa-chevron-down"></i></a>
-							<ul>
-								<li>
-									<a href="client-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Cliente</a>
-								</li>
-								<li>
-									<a href="client-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de clientes</a>
-								</li>
-								<li>
-									<a href="client-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar cliente</a>
-								</li>
-							</ul>
-						</li>
+        <!-- Page header -->
+        <div class="full-box page-header">
+          <h3 class="text-left">
+            <i class="fab fa-dashcube fa-fw"></i> &nbsp; DASHBOARD
+          </h3>
+          <p class="text-justify">
+            El Taller UTP, es una empresa se dedica a la reparación y mantenimiento de aparatos de computo de todas las marcas, cuenta con un servicio técnico que atiende las solicitudes de instalaciones, reparaciones y mantenimiento para brindar la mejor experiencia a los clientes.
+          </p>
+        </div>
+        <div class="container-fluid">
+          <ul class="full-box list-unstyled page-nav-tabs">
+            <li>
+              <a href="client-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR CLIENTE</a>
+            </li>
+            <li>
+              <a href="client-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE CLIENTES</a>
+            </li>
+            <li>
+              <a href="client-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR CLIENTE</a>
+            </li>
+          </ul>	
+        </div>
 
-						<li>
-							<a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Repuestos <i class="fas fa-chevron-down"></i></a>
-							<ul>
-								<li>
-									<a href="item-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Repuestos</a>
-								</li>
-								<li>
-									<a href="item-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Control de Repuestos</a>
-								</li>
-								<li>
-									<a href="item-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Repuesto</a>
-								</li>
-							</ul>
-						</li>
+        <!-- Content here-->
+        <div class="container-fluid">
+          <form action="ServletCliente" class="form-neon" method="post">
+            <input type="hidden" name="opc" value="3">
+            <input type="hidden" name="codigo" value=<%=cliente.getIdcliente()%>>
+            <fieldset>
+              <legend><i class="fas fa-user"></i> &nbsp; Información básica</legend>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label for="cliente_dni" class="bmd-label-floating">DNI</label>
+                      <input type="text" pattern="[a-zA-Z0-9-]{1,27}" class="form-control" name="dni" id="cliente_dni" value="<%=cliente.getDni()%>" maxlength="27">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label for="cliente_nombre" class="bmd-label-floating">Nombre</label>
+                      <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" id="cliente_nombre" name="nombre" value="<%=cliente.getNombrecliente()%>" maxlength="40">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div class="form-group">
+                      <label for="cliente_apellidopa" class="bmd-label-floating">Apellido Paterno</label>
+                      <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" id="cliente_apellido" name="apellidopa" value="<%=cliente.getApellidopaternocliente()%>" maxlength="40">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div class="form-group">
+                      <label for="cliente_apellidoma" class="bmd-label-floating">Apellido Materno</label>
+                      <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" id="cliente_apellido" name="apellidoma" value="<%=cliente.getApellidopaternocliente()%>" maxlength="40">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div class="form-group">
+                      <label for="cliente_telefono" class="bmd-label-floating">Teléfono</label>
+                      <input type="text" pattern="[0-9()+]{1,20}" class="form-control" id="cliente_telefono" name="celular" value="<%=cliente.getNcelularescliente()%>" maxlength="20">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label for="cliente_correo" class="bmd-label-floating">Correo</label>
+                      <input type="text" class="form-control" id="cliente_nombre" name="correo" value="<%=cliente.getCorreocliente()%>" maxlength="40">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div class="form-group">
+                      <label for="cliente_nacimiento" class="bmd-label-floating">Nacimiento</label>
+                      <input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" id="cliente_direccion" name="nacimiento" value="<%=cliente.getDireccion()%>" maxlength="150">
+                    </div>
+                  </div>                                                                     
+                  <div class="col-12 col-md-4">
+                    <div class="form-group">
+                      <label for="cliente_direccion" class="bmd-label-floating">Direccion</label>
+                      <input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" id="cliente_telefono" name="direccion" value="<%=cliente.getNcelularescliente()%>" maxlength="20">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div class="form-group">
+                      <label for="cliente_contrasena" class="bmd-label-floating">Contraseña</label>
+                      <input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" id="cliente_contrasena" name="contrasena" value="<%=cliente.getContrasenacliente()%>" maxlength="150">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <br><br><br>
+            <p class="text-center" style="margin-top: 40px;">
+              <button type="submit" class="btn btn-raised btn-success btn-sm"><i class="fas fa-sync-alt"></i> &nbsp; ACTUALIZAR</button>
+            </p>
+          </form>
+        </div>	
 
-						<li>
-							<a href="#" class="nav-btn-submenu"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Técnicos <i class="fas fa-chevron-down"></i></a>
-							<ul>
-								<li>
-									<a href="user-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Técnico</a>
-								</li>
-								<li>
-									<a href="user-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Técnicos</a>
-								</li>
-								<li>
-									<a href="user-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Técnico</a>
-								</li>
-							</ul>
-						</li>
+      </section>
+    </main>
 
-						<li>
-							<a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Citas <i class="fas fa-chevron-down"></i></a>
-							<ul>
-								<li>
-									<a href="reservation-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Atención a domicilio</a>
-								</li>
 
-								<li>
-									<a href="reservation-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Atención en el taller</a>
-								</li>
+    <!--=============================================
+    =            Include JavaScript files           =
+    ==============================================-->
+    <!-- jQuery V3.4.1 -->
+    <script src="./js/jquery-3.4.1.min.js" ></script>
 
-								<li>
-									<a href="reservation-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de citas</a>
-								</li>
-								<li>
-									<a href="reservation-search.jsp"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar Cita</a>
-								</li>
-								<li>
-									<a href="reservation-pending.jsp"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Reporte de citas</a>
-								</li>
-							</ul>
-						</li>
+    <!-- popper -->
+    <script src="./js/popper.min.js" ></script>
 
-						
-					</ul>
-				</nav>
-			</div>
-		</section>
+    <!-- Bootstrap V4.3 -->
+    <script src="./js/bootstrap.min.js" ></script>
 
-		<!-- Page content -->
-		<section class="full-box page-content">
-			<nav class="full-box navbar-info">
-				<a href="#" class="float-left show-nav-lateral">
-					<i class="fas fa-exchange-alt"></i>
-				</a>
-				<a href="user-update.jsp">
-					<i class="fas fa-user-cog"></i>
-				</a>
-				<a href="#" class="btn-exit-system">
-					<i class="fas fa-power-off"></i>
-				</a>
-			</nav>
+    <!-- jQuery Custom Content Scroller V3.1.5 -->
+    <script src="./js/jquery.mCustomScrollbar.concat.min.js" ></script>
 
-			<!-- Page header -->
-			<div class="full-box page-header">
-				<h3 class="text-left">
-					<i class="fab fa-dashcube fa-fw"></i> &nbsp; DASHBOARD
-				</h3>
-				<p class="text-justify">
-					El Taller UTP, es una empresa se dedica a la reparación y mantenimiento de aparatos de computo de todas las marcas, cuenta con un servicio técnico que atiende las solicitudes de instalaciones, reparaciones y mantenimiento para brindar la mejor experiencia a los clientes.
-				</p>
-			</div>
-			<div class="container-fluid">
-				<ul class="full-box list-unstyled page-nav-tabs">
-					<li>
-						<a href="client-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR CLIENTE</a>
-					</li>
-					<li>
-						<a href="client-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE CLIENTES</a>
-					</li>
-					<li>
-						<a href="client-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR CLIENTE</a>
-					</li>
-				</ul>	
-			</div>
-			
-			<!-- Content here-->
-			<div class="container-fluid">
-				<form action="" class="form-neon" autocomplete="off">
-					<fieldset>
-						<legend><i class="fas fa-user"></i> &nbsp; Información básica</legend>
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-12 col-md-6">
-									<div class="form-group">
-										<label for="cliente_dni" class="bmd-label-floating">DNI</label>
-										<input type="text" pattern="[a-zA-Z0-9-]{1,27}" class="form-control" id="cliente_dni" id="cliente_dni" maxlength="27">
-									</div>
-								</div>
-								<div class="col-12 col-md-6">
-									<div class="form-group">
-										<label for="cliente_nombre" class="bmd-label-floating">Nombre</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" name="cliente_nombre" id="cliente_nombre" maxlength="40">
-									</div>
-								</div>
-								<div class="col-12 col-md-4">
-									<div class="form-group">
-										<label for="cliente_apellido" class="bmd-label-floating">Apellido</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" name="cliente_apellido" id="cliente_apellido" maxlength="40">
-									</div>
-								</div>
-								<div class="col-12 col-md-4">
-									<div class="form-group">
-										<label for="cliente_telefono" class="bmd-label-floating">Teléfono</label>
-										<input type="text" pattern="[0-9()+]{1,20}" class="form-control" name="cliente_telefono" id="cliente_telefono" maxlength="20">
-									</div>
-								</div>
-								<div class="col-12 col-md-4">
-									<div class="form-group">
-										<label for="cliente_direccion" class="bmd-label-floating">Dirección</label>
-										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" name="cliente_direccion" id="cliente_direccion" maxlength="150">
-									</div>
-								</div>
-							</div>
-						</div>
-					</fieldset>
-					<br><br><br>
-					<p class="text-center" style="margin-top: 40px;">
-						<button type="submit" class="btn btn-raised btn-success btn-sm"><i class="fas fa-sync-alt"></i> &nbsp; ACTUALIZAR</button>
-					</p>
-				</form>
-			</div>	
+    <!-- Bootstrap Material Design V4.0 -->
+    <script src="./js/bootstrap-material-design.min.js" ></script>
+    <script>$(document).ready(function () {
+        $('body').bootstrapMaterialDesign();
+      });</script>
 
-		</section>
-	</main>
-	
-	
-	<!--=============================================
-	=            Include JavaScript files           =
-	==============================================-->
-	<!-- jQuery V3.4.1 -->
-	<script src="./js/jquery-3.4.1.min.js" ></script>
-
-	<!-- popper -->
-	<script src="./js/popper.min.js" ></script>
-
-	<!-- Bootstrap V4.3 -->
-	<script src="./js/bootstrap.min.js" ></script>
-
-	<!-- jQuery Custom Content Scroller V3.1.5 -->
-	<script src="./js/jquery.mCustomScrollbar.concat.min.js" ></script>
-
-	<!-- Bootstrap Material Design V4.0 -->
-	<script src="./js/bootstrap-material-design.min.js" ></script>
-	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
-
-	<script src="./js/main.js" ></script>
-</body>
+    <script src="./js/main.js" ></script>
+  </body>
 </html>

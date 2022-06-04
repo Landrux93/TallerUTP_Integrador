@@ -43,97 +43,7 @@
         <!-- Main container -->
         <main class="full-box main-container">
             <!-- Nav lateral -->
-            <section class="full-box nav-lateral">
-                <div class="full-box nav-lateral-bg show-nav-lateral"></div>
-                <div class="full-box nav-lateral-content">
-                    <figure class="full-box nav-lateral-avatar">
-                        <i class="far fa-times-circle show-nav-lateral"></i>
-                        <img src="./assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
-                        <figcaption class="roboto-medium text-center">
-                            Alma Valer <br><small class="roboto-condensed-light">Administrador</small>
-                        </figcaption>
-                    </figure>
-                    <div class="full-box nav-lateral-bar"></div>
-                    <nav class="full-box nav-lateral-menu">
-                        <ul>
-                            <li>
-                                <a href="home.jsp"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Dashboard</a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="nav-btn-submenu"><i class="fas fa-users fa-fw"></i> &nbsp; Clientes <i class="fas fa-chevron-down"></i></a>
-                                <ul>
-                                    <li>
-                                        <a href="client-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Cliente</a>
-                                    </li>
-                                    <li>
-                                        <a href="client-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de clientes</a>
-                                    </li>
-                                    <li>
-                                        <a href="client-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar cliente</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Repuestos <i class="fas fa-chevron-down"></i></a>
-                                <ul>
-                                    <li>
-                                        <a href="item-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Repuestos</a>
-                                    </li>
-                                    <li>
-                                        <a href="item-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Control de Repuestos</a>
-                                    </li>
-                                    <li>
-                                        <a href="item-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Repuesto</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="nav-btn-submenu"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Técnicos <i class="fas fa-chevron-down"></i></a>
-                                <ul>
-                                    <li>
-                                        <a href="user-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Técnico</a>
-                                    </li>
-                                    <li>
-                                        <a href="user-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Técnicos</a>
-                                    </li>
-                                    <li>
-                                        <a href="user-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Técnico</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Citas <i class="fas fa-chevron-down"></i></a>
-                                <ul>
-                                    <li>
-                                        <a href="reservation-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Atención a domicilio</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="reservation-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Atención en el taller</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="reservation-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de citas</a>
-                                    </li>
-                                    <li>
-                                        <a href="reservation-search.jsp"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar Cita</a>
-                                    </li>
-                                    <li>
-                                        <a href="reservation-pending.jsp"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Reporte de citas</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-
-                        </ul>
-                    </nav>
-                </div>
-            </section>
-
+            <%@include file="Nav-Bar.jsp" %>
             <!-- Page content -->
             <section class="full-box page-content">
                 <nav class="full-box navbar-info">
@@ -231,7 +141,7 @@
                                     <div class="col-12 col-md-4">
                                         <div class="form-group">
                                             <label for="cliente_contrasena" class="bmd-label-floating">Contraseña</label>
-                                            <input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" id="cliente_contrasena" name="contrasena" maxlength="150">
+                                            <input type="password" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" id="cliente_contrasena" name="contrasena" maxlength="150">
                                         </div>
                                     </div>
                                 </div>

@@ -5,8 +5,8 @@ public class MySQLConexion {
 	public static Connection getConexion(){ 
 		Connection con = null;
 		try { 
-                Class.forName("com.mysql.jdbc.Driver"); 
-		String url = "jdbc:mysql://34.176.117.100/tallerutp1"; 
+                Class.forName("com.mysql.cj.jdbc.Driver"); 
+		String url = "jdbc:mysql://34.176.117.100/tallerutp"; 
 		String usr = "grupo1";
 		String psw = "grupo1_2022"; 
 		con = DriverManager.getConnection(url,usr,psw); 

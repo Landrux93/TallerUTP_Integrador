@@ -11,12 +11,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import Entidad.*;
+
 /**
  *
  * @author landrux
  */
 public class ModeloCliente {
-    
+
     public ModeloCliente() {
     }
 
@@ -70,8 +71,8 @@ public class ModeloCliente {
             conn = MySQLConexion.getConexion();
             String sql = "{call agregarcliente(?,?,?,?,?,?,?,?,?)}";
             pstm = conn.prepareCall(sql);
-            
-            pstm.setInt(1, cliente.getDni());   
+
+            pstm.setInt(1, cliente.getDni());
             pstm.setString(2, cliente.getNombrecliente());
             pstm.setString(3, cliente.getApellidopaternocliente());
             pstm.setString(4, cliente.getApellidomaternocliente());
@@ -110,5 +111,54 @@ public class ModeloCliente {
             ex.printStackTrace();
         }
 
+    }
+
+    public void modificaCliente(Cliente cliente) {
+        try {
+            PreparedStatement pstm = null;
+            Connection conn = MySQLConexion.getConexion();
+            String sql = "{call modificacliente(?,?,?,?,?,?,?,?,?,?)}";
+            pstm = conn.prepareCall(sql);
+            pstm.setString(1, cliente.getIdcliente());
+            pstm.setInt(2, cliente.getDni());
+            pstm.setString(3, cliente.getNombrecliente());
+            pstm.setString(4, cliente.getApellidopaternocliente());
+            pstm.setString(5, cliente.getApellidomaternocliente());
+            pstm.setString(6, cliente.getNcelularescliente());
+            pstm.setString(7, cliente.getCorreocliente());
+            pstm.setString(8, cliente.getFechanacimientocliente());
+            pstm.setString(9, cliente.getDireccion());
+            pstm.setString(10, cliente.getContrasenacliente());
+            pstm.executeUpdate();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
+        public Cliente busca(String codigo) {
+        Cliente cliente = null;
+        try {
+            Connection cn = MySQLConexion.getConexion();
+            String sql = "call buscacliente(?)";
+            PreparedStatement st = cn.prepareCall(sql);
+            st.setString(1, codigo);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                cliente = new Cliente();
+                cliente.setIdcliente(rs.getString(1));
+                cliente.setDni(rs.getInt(2));
+                cliente.setNombrecliente(rs.getString(3));
+                cliente.setApellidopaternocliente(rs.getString(4));
+                cliente.setApellidomaternocliente(rs.getString(5));
+                cliente.setNcelularescliente(rs.getString(6));
+                cliente.setCorreocliente(rs.getString(7));
+                cliente.setFechanacimientocliente(rs.getString(8));
+                cliente.setDireccion(rs.getString(9));
+                cliente.setContrasenacliente(rs.getString(10));
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return cliente;
     }
 }

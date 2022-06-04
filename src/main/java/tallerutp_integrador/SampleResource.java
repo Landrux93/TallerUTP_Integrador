@@ -1,4 +1,4 @@
-package webcolegio.prueba1tallerutp;
+package tallerutp_integrador;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
