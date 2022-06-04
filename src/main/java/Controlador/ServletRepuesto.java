@@ -121,14 +121,14 @@ public class ServletRepuesto extends HttpServlet {
     repuesto.setCostorepuesto(Double.parseDouble(request.getParameter("costo")));
     repuesto.setStock(Integer.parseInt(request.getParameter("stock")));
     obj.insertaRepuesto(repuesto);
-    request.getRequestDispatcher("/home.jsp").forward(request, response);
+    lista(request, response);
   }
 
   protected void elimina(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
     String codigo = request.getParameter("codigo");
     obj.eliminaRepuesto(codigo);
-    request.getRequestDispatcher("/item-list.jsp").forward(request, response);
+    lista(request, response);
 
   }
 
@@ -137,14 +137,14 @@ public class ServletRepuesto extends HttpServlet {
     System.out.println("Ingreso Servlet");
     Repuesto repuesto = new Repuesto();
     repuesto.setIdrepuesto(request.getParameter("codigo"));
-    repuesto.setNombrerepuesto(request.getParameter("nombrerepuesto"));
-    repuesto.setMarcarespuesto(request.getParameter("marcarespuesto"));
-    repuesto.setModelorepuesto(request.getParameter("modelorepuesto"));
-    repuesto.setSerierepuesto(request.getParameter("serierepuesto"));
-    repuesto.setCostorepuesto(Double.parseDouble(request.getParameter("costorepuesto")));
+    repuesto.setNombrerepuesto(request.getParameter("nombre"));
+    repuesto.setMarcarespuesto(request.getParameter("marca"));
+    repuesto.setModelorepuesto(request.getParameter("modelo"));
+    repuesto.setSerierepuesto(request.getParameter("serie"));
+    repuesto.setCostorepuesto(Double.parseDouble(request.getParameter("costo")));
     repuesto.setStock(Integer.parseInt(request.getParameter("stock")));
     obj.modificarepuesto(repuesto);
-    request.getRequestDispatcher("/item-list.jsp").forward(request, response);
+    lista(request, response);
   }
   
   protected void lista(HttpServletRequest request, HttpServletResponse response)

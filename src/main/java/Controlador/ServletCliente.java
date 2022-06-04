@@ -122,7 +122,7 @@ public class ServletCliente extends HttpServlet {
     a.setDireccion(request.getParameter("direccion"));
     a.setContrasenacliente(request.getParameter("contrasena"));
     obj.insertaCliente(a);
-    request.getRequestDispatcher("/home.jsp").forward(request, response);
+    lista(request, response);
   }
 
   protected void elimina(HttpServletRequest request, HttpServletResponse response)
@@ -130,7 +130,7 @@ public class ServletCliente extends HttpServlet {
     String codigo = request.getParameter("codigo");
     request.setAttribute("id", codigo);
     obj.eliminaCliente(codigo);
-    request.getRequestDispatcher("/client-list.jsp").forward(request, response);
+    lista(request, response);
 
   }
 
@@ -148,7 +148,7 @@ public class ServletCliente extends HttpServlet {
     a.setDireccion(request.getParameter("direccion"));
     a.setContrasenacliente(request.getParameter("contrasena"));
     obj.modificaCliente(a);
-    request.getRequestDispatcher("/client-list.jsp").forward(request, response);
+    lista(request, response);
   }
 
   protected void lista(HttpServletRequest request, HttpServletResponse response)

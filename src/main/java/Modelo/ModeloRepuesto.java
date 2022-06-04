@@ -115,7 +115,7 @@ public class ModeloRepuesto {
     try {
       PreparedStatement pstm = null;
       Connection conn = MySQLConexion.getConexion();
-      String sql = "{call modificarrepuesto(?,?,?,?,?,?,?,?,?,?)}";
+      String sql = "{call modificarrepuesto(?,?,?,?,?,?,?)}";
       pstm = conn.prepareCall(sql);
       pstm.setString(1, repuesto.getIdrepuesto());
       pstm.setString(2, repuesto.getNombrerepuesto());
@@ -123,6 +123,7 @@ public class ModeloRepuesto {
       pstm.setString(4, repuesto.getModelorepuesto());
       pstm.setString(5, repuesto.getSerierepuesto());
       pstm.setDouble(6, repuesto.getCostorepuesto());
+      pstm.setInt(7, repuesto.getStock());
       pstm.executeUpdate();
     } catch (Exception ex) {
       ex.printStackTrace();
@@ -134,7 +135,7 @@ public class ModeloRepuesto {
     Repuesto repuesto = null;
     try {
       Connection cn = MySQLConexion.getConexion();
-      String sql = "call buscarepuesto(?)";
+      String sql = "call buscarepuesto (?)";
       PreparedStatement st = cn.prepareCall(sql);
       st.setString(1, codigo);
       ResultSet rs = st.executeQuery();

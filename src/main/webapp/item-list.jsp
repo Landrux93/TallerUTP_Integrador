@@ -50,9 +50,9 @@
               <table class="table table-dark table-sm">
                 <thead>
                   <tr class="text-center roboto-medium">
-                    <th>#</th>
                     <th>CÓDIGO</th>
                     <th>NOMBRE</th>
+                    <th>COSTO</th>
                     <th>STOCK</th>
                     <th>ACTUALIZAR</th>
                     <th>ELIMINAR</th>
@@ -64,7 +64,7 @@
                     List<Repuesto> lista = (List<Repuesto>) request.getAttribute("repuestos");
                     if (lista != null) {
                       for (Repuesto x : lista) {
-                        out.print("<tr class= \"text-center\" ><td>" + x.getIdrepuesto()+ "<td>" + x.getNombrerepuesto()+ "<td>" + x.getStock()+ "<td>" );
+                        out.print("<tr class= \"text-center\" ><td>" + x.getIdrepuesto()+ "<td>" + x.getNombrerepuesto()+"<td>" + x.getCostorepuesto()+ "<td>" + x.getStock() );
                         out.print("<td><a class=\"btn btn-success\" href=\"ServletRepuesto?opc=5&codigo=" + x.getIdrepuesto() + " \"><i class=\"fas fa-sync-alt\"></i></a></td>");
                         out.print("<td><a class=\"btn btn-warning\" href=\"ServletRepuesto?opc=2&codigo=" + x.getIdrepuesto() + " \"><i class=\"far fa-trash-alt\"></i></a></td>");
                                       }

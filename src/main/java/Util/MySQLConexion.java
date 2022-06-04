@@ -9,6 +9,9 @@ public class MySQLConexion {
 		String url = "jdbc:mysql://34.176.117.100/tallerutp"; 
 		String usr = "grupo1";
 		String psw = "grupo1_2022"; 
+                //String url = "jdbc:mysql://localhost/tallerutp"; 
+		//String usr = "root";
+		//String psw = ""; 
 		con = DriverManager.getConnection(url,usr,psw); 
 		System.out.println("conexion ok");
 		} catch (ClassNotFoundException ex)

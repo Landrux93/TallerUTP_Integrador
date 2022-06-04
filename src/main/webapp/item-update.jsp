@@ -46,7 +46,7 @@
 
         <!--CONTENT-->
         <div class="container-fluid">
-          <form action="ServletRepuesto" class="form-neon" method="post">
+          <form action="ServletRepuesto" class="form-neon" >
             <input type="hidden" name="opc" value="3">
             <input type="hidden" name="codigo" value=<%=repuesto.getIdrepuesto()%>>
             <fieldset>
@@ -56,37 +56,37 @@
                   <div class="col-12 col-md-4">
                     <div class="form-group">
                       <label for="item_nombre" class="bmd-label-floating">Nombre</label>
-                      <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="item_nombre" id="nombre" value="<%=repuesto.getNombrerepuesto()%>" maxlength="140">
+                      <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="nombre" id="nombre" value="<%=repuesto.getNombrerepuesto()%>" maxlength="140">
                     </div>
                   </div>
                   <div class="col-12 col-md-4">
                     <div class="form-group">
                       <label for="item_marca" class="bmd-label-floating">Marca</label>
-                      <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="item_marca" id="marca"  value="<%=repuesto.getMarcarespuesto()%>" maxlength="140">
+                      <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="marca" id="marca"  value="<%=repuesto.getMarcarespuesto()%>" maxlength="140">
                     </div>
                   </div>
                   <div class="col-12 col-md-4">
                     <div class="form-group">
-                      <label for="item_serie" class="bmd-label-floating">Marca</label>
-                      <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="item_serie" id="serie" value="<%=repuesto.getSerierepuesto()%>"  maxlength="140">
+                      <label for="item_serie" class="bmd-label-floating">Serie</label>
+                      <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="serie" id="serie" value="<%=repuesto.getSerierepuesto()%>"  maxlength="140">
                     </div>
                   </div><!-- comment -->
                   <div class="col-12 col-md-4">
                     <div class="form-group">
-                      <label for="item_modelo" class="bmd-label-floating">Marca</label>
-                      <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="item_modelo" id="modelo" value="<%=repuesto.getModelorepuesto()%>"  maxlength="140">
+                      <label for="item_modelo" class="bmd-label-floating">Modelo</label>
+                      <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="modelo" id="modelo" value="<%=repuesto.getModelorepuesto()%>"  maxlength="140">
                     </div>
                   </div><!-- comment -->
                   <div class="col-12 col-md-4">
                     <div class="form-group">
-                      <label for="item_costo" class="bmd-label-floating">Marca</label>
-                      <input type="text" pattern="[0-9 ]{1,140}" class="form-control" name="item_costo" id="costo" value="<%=repuesto.getCostorepuesto()%>"  maxlength="140">
+                      <label for="item_costo" class="bmd-label-floating">Costo</label>
+                      <input type="text" class="form-control" name="costo" id="costo" value="<%=repuesto.getCostorepuesto()%>"  maxlength="140">
                     </div>
                   </div>
                   <div class="col-12 col-md-4">
                     <div class="form-group">
                       <label for="item_stock" class="bmd-label-floating">Stock</label>
-                      <input type="num" pattern="[0-9]{1,9}" class="form-control" name="item_stock" id="stock"  value="<%=repuesto.getStock()%>" maxlength="9">
+                      <input type="num" pattern="[0-9]{1,9}" class="form-control" name="stock" id="stock"  value="<%=repuesto.getStock()%>" maxlength="9">
                     </div>
                   </div>
                 </div>
