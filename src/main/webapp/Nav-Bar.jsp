@@ -26,7 +26,7 @@
 				<nav class="full-box nav-lateral-menu">
 					<ul>
 						<li>
-							<a href="home.html"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Dashboard</a>
+							<a href="home.jsp"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Dashboard</a>
 						</li>
 
 						<li>
@@ -51,7 +51,7 @@
 									<a href="item-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Repuestos</a>
 								</li>
 								<li>
-									<a href="item-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Control de Repuestos</a>
+									<a href="ServletRepuesto?opc=4"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Control de Repuestos</a>
 								</li>
 								<li>
 									<a href="item-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Repuesto</a>

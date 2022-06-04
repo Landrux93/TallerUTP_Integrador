@@ -93,10 +93,10 @@ public class ServletCliente extends HttpServlet {
           throws ServletException, IOException {
     int op = Integer.parseInt(request.getParameter("opc"));
     if (op == 1) {
-      adicion(request, response);
+      inserta(request, response);
     }
     if (op == 2) {
-      anula(request, response);
+      elimina(request, response);
     }
     if (op == 3) {
       modifica(request, response);
@@ -109,7 +109,7 @@ public class ServletCliente extends HttpServlet {
     }
   }
 
-  protected void adicion(HttpServletRequest request, HttpServletResponse response)
+  protected void inserta(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
     Cliente a = new Cliente();
     a.setDni(Integer.parseInt(request.getParameter("dni")));
@@ -125,18 +125,19 @@ public class ServletCliente extends HttpServlet {
     request.getRequestDispatcher("/home.jsp").forward(request, response);
   }
 
-  protected void anula(HttpServletRequest request, HttpServletResponse response)
+  protected void elimina(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
     String codigo = request.getParameter("codigo");
     request.setAttribute("id", codigo);
     obj.eliminaCliente(codigo);
-    request.getRequestDispatcher("/home.jsp").forward(request, response);
+    request.getRequestDispatcher("/client-list.jsp").forward(request, response);
 
   }
 
   protected void modifica(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
     Cliente a = new Cliente();
+    a.setIdcliente(request.getParameter("codigo"));
     a.setDni(Integer.parseInt(request.getParameter("dni")));
     a.setNombrecliente(request.getParameter("nombre"));
     a.setApellidopaternocliente(request.getParameter("apellidopa"));
@@ -147,7 +148,7 @@ public class ServletCliente extends HttpServlet {
     a.setDireccion(request.getParameter("direccion"));
     a.setContrasenacliente(request.getParameter("contrasena"));
     obj.modificaCliente(a);
-    request.getRequestDispatcher("/home.jsp").forward(request, response);
+    request.getRequestDispatcher("/client-list.jsp").forward(request, response);
   }
 
   protected void lista(HttpServletRequest request, HttpServletResponse response)

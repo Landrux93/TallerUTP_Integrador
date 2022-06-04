@@ -47,7 +47,7 @@
                 <!-- Content -->
                 <div class="full-box tile-container">
 
-                    <a href="client-new.jsp" class="tile">
+                    <a href="ServletCliente?opc=4" class="tile">
                         <div class="tile-tittle">Clientes</div>
                         <div class="tile-icon">
                             <i class="fas fa-users fa-fw"></i>
@@ -55,7 +55,7 @@
                         </div>
                     </a>
 
-                    <a href="item-list.jsp" class="tile">
+                    <a href="ServletRepuesto?opc=4" class="tile">
                         <div class="tile-tittle">Repuestos</div>
                         <div class="tile-icon">
                             <i class="fas fa-pallet fa-fw"></i>

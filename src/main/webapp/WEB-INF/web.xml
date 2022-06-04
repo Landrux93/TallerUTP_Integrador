@@ -8,6 +8,14 @@
         <servlet-name>ServletRepuesto</servlet-name>
         <servlet-class>Controlador.ServletRepuesto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletTrabajador</servlet-name>
+        <servlet-class>Controlador.ServletTrabajador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletCitas</servlet-name>
+        <servlet-class>Controlador.ServletCitas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletCliente</servlet-name>
         <url-pattern>/ServletCliente</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>ServletRepuesto</servlet-name>
         <url-pattern>/ServletRepuesto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletTrabajador</servlet-name>
+        <url-pattern>/ServletTrabajador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCitas</servlet-name>
+        <url-pattern>/ServletCitas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

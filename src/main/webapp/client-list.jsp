@@ -14,30 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Lista de clientes</title>
-
-    <!-- Normalize V8.0.1 -->
-    <link rel="stylesheet" href="./css/normalize.css">
-
-    <!-- Bootstrap V4.3 -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-
-    <!-- Bootstrap Material Design V4.0 -->
-    <link rel="stylesheet" href="./css/bootstrap-material-design.min.css">
-
-    <!-- Font Awesome V5.9.0 -->
-    <link rel="stylesheet" href="./css/all.css">
-
-    <!-- Sweet Alerts V8.13.0 CSS file -->
-    <link rel="stylesheet" href="./css/sweetalert2.min.css">
-
-    <!-- Sweet Alert V8.13.0 JS file-->
-    <script src="./js/sweetalert2.min.js" ></script>
-
-    <!-- jQuery Custom Content Scroller V3.1.5 -->
-    <link rel="stylesheet" href="./css/jquery.mCustomScrollbar.css">
-
-    <!-- General Styles -->
-    <link rel="stylesheet" href="./css/style.css">
+<%@include file="libreria.jsp" %>
 
   </head>
   <body>
@@ -60,28 +37,7 @@
         </nav>
 
         <!-- Page header -->
-        <div class="full-box page-header">
-          <h3 class="text-left">
-            <i class="fab fa-dashcube fa-fw"></i> &nbsp; DASHBOARD
-          </h3>
-          <p class="text-justify">
-            El Taller UTP, es una empresa se dedica a la reparación y mantenimiento de aparatos de computo de todas las marcas, cuenta con un servicio técnico que atiende las solicitudes de instalaciones, reparaciones y mantenimiento para brindar la mejor experiencia a los clientes.
-          </p>
-        </div>
-
-        <div class="container-fluid">
-          <ul class="full-box list-unstyled page-nav-tabs">
-            <li>
-              <a href="client-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR CLIENTE</a>
-            </li>
-            <li>
-              <a class="active" href="client-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE CLIENTES</a>
-            </li>
-            <li>
-              <a href="client-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR CLIENTE</a>
-            </li>
-          </ul>	
-        </div>
+        <%@include file="client-header.jsp" %>
 
         <!-- Content here-->
         <div class="container-fluid">
@@ -104,9 +60,10 @@
                   if (lista != null) {
                     for (Cliente x : lista) {
                       out.print("<tr class= \"text-center\" ><td>" + x.getIdcliente() + "<td>" + x.getDni() + "<td>" + x.getNombrecliente() + "<td>" + x.getApellidopaternocliente() + "<td>" + x.getNcelularescliente());
-                      out.print("<td><a class=\"btn btn-success\" href=\"ServletCliente?opc=5&codigo="+x.getIdcliente()+" \"><i class=\"fas fa-sync-alt\"></i></a></td>");
-                      out.print("<td><form action=\"ServletCliente\"><input type=\"hidden\" name=\"opc\" value=\"2\"><input type=\"hidden\" name=\"codigo\" value="+x.getIdcliente()+"><button type=\"button\" class=\"btn btn-warning\"><i class=\"far fa-trash-alt\"></i></button></form> </td>  ");
-  }}%>        
+                      out.print("<td><a class=\"btn btn-success\" href=\"ServletCliente?opc=5&codigo=" + x.getIdcliente() + " \"><i class=\"fas fa-sync-alt\"></i></a></td>");
+                      out.print("<td><a class=\"btn btn-warning\" href=\"ServletCliente?opc=2&codigo=" + x.getIdcliente() + " \"><i class=\"far fa-trash-alt\"></i></a></td>");
+                    }
+                  }%>        
 
               </tbody>
             </table>
