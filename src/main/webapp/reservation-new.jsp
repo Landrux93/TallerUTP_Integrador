@@ -4,6 +4,7 @@
     Author     : LENOVO
 --%>
 
+<%@page import="Entidad.TipoCita"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,6 +13,11 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Nueva cita</title>
 <%@include file="libreria.jsp" %>
+<%@page import="java.util.List"%>
+<%@page import="Modelo.ModeloCliente"%>
+<%@page import="Entidad.Cliente"%>
+<%@page import="Entidad.TipoCita"%>
+<%@page import="Entidad.Cita"%>
 
 
 </head>
@@ -48,7 +54,7 @@
             <div class="container-fluid">
                 <ul class="full-box list-unstyled page-nav-tabs">
                     <li>
-                        <a class="active" href="reservation-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVA CITA</a>
+                        <a class="active" href="ServletCita?opcion=1"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVA CITA</a>
                     </li>
                     <li>
                         <a href="reservation-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE CITAS</a>
@@ -66,7 +72,7 @@
             <div class="container-fluid">
             	<div class="container-fluid form-neon">
                     <div class="container-fluid">
-                        <p class="text-center roboto-medium">AGREGAR CLIENTE O ITEMS</p>
+                        <p class="text-center roboto-medium">AGREGAR CITAS</p>
                         <p class="text-center">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCliente"><i class="fas fa-user-plus"></i> &nbsp; Agregar cita a domicilio</button>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalItem"><i class="fas fa-box-open"></i> &nbsp; Agregar cita en taller</button>
@@ -83,15 +89,34 @@
                             <table class="table table-dark table-sm">
                                 <thead>
                                     <tr class="text-center roboto-medium">
-                                        <th>TECNICO</th>
-                                        <th>FECHA DE CITA</th>
-                                        <th>ELIMINAR</th>
+                                        <th># CITA</th>
+                                        <th>TIPO</th>
+                                        <th>FECHA CITA</th>
+                                        <th>HORA CITA</th>
+                                        <th>FECHA FIN</th>
+                                        <th>ESTADO CITA</th>
+                                        <th>CLIENTE</th>
+                                        <th>ACCIONES</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody>                   
+                                    <%
+                                                                                  
+                  List<Cita> listacitas = (List<Cita>) request.getAttribute("listacita");
+                  if (listacitas != null) {
+                    for (Cita z : listacitas) {
+                      
+                    %> 
                                     <tr class="text-center" >
-                                        <td>NOMBRE DEL TECNICO</td>
-                                        <td>Fecha de cita</td>
+                                 
+                                        <td><%= z.getIdtipocita()%></td>
+                                        <td><%= z.getIdtipocita()%></td>
+                                        <td><%= z.getFechacita()%></td>
+                                        <td><%= z.getFechafinalizacion()%></td>
+                                        <td><%= z.getEstado()%></td>
+                                        
+                                        <td><%= z.getHora()%></td>
+                                        <td><%= z.getIdcliente()%></td>
                                         <td>
                                             <form action="">
                                                 <button type="button" class="btn btn-warning">
@@ -99,69 +124,97 @@
                                                 </button>
                                             </form>
                                         </td>
+                                        
                                     </tr>
-                                    <tr class="text-center" >
-                                        <td>NOMBRE DEL TECNICO<</td>
-                                        <td>Fecha de cita</td>
-                                        <td>
-                                            <form action="">
-                                                <button type="button" class="btn btn-warning">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                    <%
+                                                                                         }
+                  }%>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-					<form action="" autocomplete="off">
+                    <form action="ServletCita" autocomplete="off" method="post">
 						<fieldset>
-							<legend><i class="far fa-plus-square"></i> &nbsp; Información de la cita</legend>
+							<legend><i class="far fa-plus-square"></i> &nbsp; Programación de cita</legend>
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col-12 col-md-4">
 										<div class="form-group">
-											<label for="prestamo_fecha_inicio">Fecha de cita</label>
-											<input type="date" class="form-control" name="prestamo_fecha_inicio" id="admin-dni">
+											<label for="fecha_inicio">Fecha de cita</label>
+											<input type="date" class="form-control" name="fecha_inicio" id="fecha-inicio" >
 										</div>
 									</div>
 									
 									<div class="col-12 col-md-4">
 										<div class="form-group">
-											<label for="prestamo_fecha_final">Fecha de finalización/label>
-											<input type="date" class="form-control" name="prestamo_fecha_final" id="prestamo_fecha_final">
+											<label for="fecha_final">Fecha de finalización</label>
+											<input type="date" class="form-control" name="fecha_final" id="fecha_final" data-date-format="YYYY MM DD">
 										</div>
 									</div>
-									<div class="col-12 col-md-4">
-	                                    <div class="form-group">
-	                                        <label for="prestamo_estado" class="bmd-label-floating">Estado</label>
-	                                        <select class="form-control" name="item_estado" id="item_estado">
-	                                            <option value="" selected="" disabled="">Seleccione una opción</option>
-	                                            
-	                                            <option value="Reservacion">En proceso</option>
-	                                            <option value="Finalizado">Finalizado</option>
-	                                        </select>
-	                                    </div>
-	                                </div>
-									<div class="col-12 col-md-6">
-										<div class="form-group">
-											<label for="prestamo_total" class="bmd-label-floating">Total a pagar</label>
-											<input type="text" pattern="[0-9.]{1,10}" class="form-control" name="prestamo_total" id="prestamo_total" maxlength="10">
-										</div>
-									</div>
-	                                <div class="col-12 col-md-6">
-	                                    <div class="form-group">
-	                                        <label for="prestamo_pagado" class="bmd-label-floating">Total depositado</label>
-	                                        <input type="text" pattern="[0-9.]{1,10}" class="form-control" name="prestamo_pagado" id="prestamo_pagado" maxlength="10">
-	                                    </div>
-	                                </div>
-	                                <div class="col-12">
-	                                    <div class="form-group">
-	                                        <label for="prestamo_observacion" class="bmd-label-floating">Observación</label>
-	                                        <input type="text" pattern="[a-zA-z0-9áéíóúÁÉÍÓÚñÑ#() ]{1,400}" class="form-control" name="prestamo_observacion" id="prestamo_observacion" maxlength="400">
-	                                    </div>
-	                                </div>
+                                                                        <div class="col-12 col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="item_tipocita" class="bmd-label-floating">TIPO CITA</label>
+                                                                                <select class="form-control" name="item_tipocita" id="item_tipocita">
+                                                                                    <option value="" selected="" disabled="">Seleccione una opción</option>
+                                                                   <%
+                  List<TipoCita> listatipocitas = (List<TipoCita>) request.getAttribute("listatipocita");
+                  if (listatipocitas != null) {
+                    for (TipoCita y : listatipocitas) {
+                      
+                    %>  
+                                                                                    
+
+                                                                                    <option value="<%= y.getIdtipocita()%>"><%= y.getTipocita()%></option>
+                                                                                    
+                                                                                    
+                                                                                    <%
+                                                                                         }
+                  }%>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+									
+								</div>
+                                                            <div class="row">
+									
+									
+									
+                                                                        <div class="col-12 col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="prestamo_estado" class="bmd-label-floating">HORA DE CITA</label>
+                                                                                <select class="form-control" name="item_hora" id="oitem_hora">
+                                                                                    <option value="" selected="" disabled="">Seleccione una opción</option>
+
+                                                                                    <option value="09:00 AM">09:00 AM</option>
+                                                                                    <option value="10:00 AM">10:00 AM</option>
+                                                                                    <option value="11:00 AM">11:00 AM</option>
+                                                                                    <option value="12:00 PM">12:00 PM</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                <div class="col-12 col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="item_usuario" class="bmd-label-floating">CLIENTE</label>
+                                                                                <select class="form-control" name="item_usuario" id="item_usuario">
+                                                                                    <option value="" selected="" disabled="">Seleccione una opción</option>
+                                                                                    <%
+                  List<Cliente> listaclientes = (List<Cliente>) request.getAttribute("listacliente");
+                  if (listaclientes != null) {
+                    for (Cliente x : listaclientes) {
+                      
+                    %>  
+                                                                                    
+
+                                                                                    <option value="<%= x.getIdcliente()%>"><%= x.getNombrecliente()%> <%= x.getApellidopaternocliente()%></option>
+                                                                                    
+                                                                                    
+                                                                                    <%
+                                                                                         }
+                  }%>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+									
 								</div>
 							</div>
 						</fieldset>

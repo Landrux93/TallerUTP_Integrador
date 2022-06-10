@@ -7,8 +7,8 @@ public class MySQLConexion {
 		try { 
                 Class.forName("com.mysql.cj.jdbc.Driver"); 
 		String url = "jdbc:mysql://34.176.117.100/tallerutp"; 
-		String usr = "grupo1";
-		String psw = "grupo1_2022"; 
+		String usr = "usuario";
+		String psw = "usuario_2022"; 
                 //String url = "jdbc:mysql://localhost/tallerutp"; 
 		//String usr = "root";
 		//String psw = ""; 

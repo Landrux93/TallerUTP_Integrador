@@ -4,8 +4,13 @@
  */
 package Controlador;
 
+import Entidad.Cita;
+import Entidad.Cliente;
+import Entidad.TipoCita;
+import Modelo.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -81,5 +86,47 @@ public class ServletCitas extends HttpServlet {
   public String getServletInfo() {
     return "Short description";
   }// </editor-fold>
+protected void service(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+        int op = Integer.parseInt(request.getParameter("opcion"));
+        if (op == 1) {
+          LlenarDatos(request, response);
+        }
+        
+  }
 
+protected void inserta(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+    Cliente a = new Cliente();
+    a.setDni(Integer.parseInt(request.getParameter("dni")));
+    a.setNombrecliente(request.getParameter("nombre"));
+    a.setApellidopaternocliente(request.getParameter("apellidopa"));
+    a.setApellidomaternocliente(request.getParameter("apellidoma"));
+    a.setNcelularescliente(request.getParameter("celular"));
+    a.setCorreocliente(request.getParameter("correo"));
+    a.setFechanacimientocliente(request.getParameter("nacimiento"));
+    a.setDireccion(request.getParameter("direccion"));
+    a.setContrasenacliente(request.getParameter("contrasena"));
+  }
+protected void LlenarDatos(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException
+    {
+        ModeloCliente cliente= new ModeloCliente();
+        ModeloTipoCita tipocita = new ModeloTipoCita();
+        ModeloCita cita= new ModeloCita();
+        List<Cliente> listacliente= cliente.listaCliente("");
+        List<TipoCita> listatipocita= tipocita.listaTipoCita("");
+        List<Cita> listacita= cita.listaCita("");
+        
+        for (TipoCita cita1 : listatipocita) {
+            System.out.println(cita1.getTipocita()+"-----okkkk");
+        }
+        
+        request.setAttribute("listacita", listacita);
+        request.setAttribute("listacliente", listacliente);
+        request.setAttribute("listatipocita", listatipocita);
+        request.getRequestDispatcher("/reservation-new.jsp").forward(request, response);
+
+        
+    }
 }

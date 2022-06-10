@@ -49,7 +49,7 @@
             <div class="container-fluid">
                 <ul class="full-box list-unstyled page-nav-tabs">
                     <li>
-                        <a href="reservation-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVA CITA</a>
+                        <a href="ServletCitas?opcion=1"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVA CITA</a>
                     </li>
                     <li>
                         <a class="active" href="reservation-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE CITAS</a>
