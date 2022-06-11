@@ -28,19 +28,19 @@ public class ModeloCita {
     ResultSet rs = null;
     try {
       conn = MySQLConexion.getConexion();
-      String sql = "select * from cita";
+      String sql = "SELECT cita.idcita,tipocita.tipocita, cita.fechacita,cita.fechafinalizacion,cita.estado,cita.hora,cliente.nombrecliente FROM cita INNER JOIN tipocita ON cita.idtipocita= tipocita.idtipocita INNER JOIN cliente ON cita.idcliente= cliente.idcliente";
       pstm = conn.prepareStatement(sql);
       rs = pstm.executeQuery();
       Cita cita = null;
       while (rs.next()) {
         cita = new Cita();
         cita.setIdcita(rs.getString("idcita"));
-        cita.setIdtipocita(rs.getString("idtipocita"));
+        cita.setIdtipocita(rs.getString("tipocita"));
         cita.setFechacita(rs.getString("fechacita"));
         cita.setFechafinalizacion(rs.getString("fechafinalizacion"));
         cita.setEstado(rs.getString("estado"));
         cita.setHora(rs.getString("hora"));
-        cita.setIdcliente(rs.getString("idcliente"));
+        cita.setIdcliente(rs.getString("nombrecliente"));
         lista.add(cita);
       }
     } catch (Exception e) {
@@ -72,16 +72,16 @@ public class ModeloCita {
     PreparedStatement pstm = null;
     try {
       conn = MySQLConexion.getConexion();
-      String sql = "{call agregarcita(?,?,?,?,?,?,?)}";
+      String sql = "{call agregarcita(?,?,?,?,?,?)}";
       pstm = conn.prepareCall(sql);
 
-      pstm.setString(1, cita.getIdcita());
-      pstm.setString(2, cita.getIdtipocita());
-      pstm.setString(3, cita.getFechacita());
-      pstm.setString(4, cita.getFechafinalizacion());
-      pstm.setString(5, cita.getEstado());
-      pstm.setString(6, cita.getHora());
-      pstm.setString(7, cita.getIdcliente());
+      //pstm.setString(1, cita.getIdcita());
+      pstm.setString(1, cita.getIdtipocita());
+      pstm.setString(2, cita.getFechacita());
+      pstm.setString(3, cita.getFechafinalizacion());
+      pstm.setString(4, cita.getEstado());
+      pstm.setString(5, cita.getHora());
+      pstm.setString(6, cita.getIdcliente());
       salida = pstm.executeUpdate();
 
     } catch (Exception e) {

@@ -86,7 +86,7 @@
 								</li>
 
 								<li>
-									<a href="reservation-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de citas</a>
+									<a href="ServletRutas?ruta=listarcitas"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de citas</a>
 								</li>
 								<li>
 									<a href="reservation-search.jsp"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar Cita</a>

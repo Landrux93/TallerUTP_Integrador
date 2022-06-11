@@ -12,6 +12,11 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Lista de citas</title>
 <%@include file="libreria.jsp" %>
+<%@page import="java.util.List"%>
+<%@page import="Modelo.ModeloCliente"%>
+<%@page import="Entidad.Cliente"%>
+<%@page import="Entidad.TipoCita"%>
+<%@page import="Entidad.Cita"%>
 
 
 </head>
@@ -70,24 +75,36 @@
 					<table class="table table-dark table-sm">
 						<thead>
 							<tr class="text-center roboto-medium">
-								<th>#</th>
-								<th>CLIENTE</th>
-								<th>FECHA DE PRÉSTAMO</th>
-								<th>FECHA DE ENTREGA</th>
-								<th>ESTADO</th>
-								<th>FACTURA</th>
-								<th>ACTUALIZAR</th>
-								<th>PAGOS</th>
-								<th>ELIMINAR</th>
+                                                            <th># CITA</th>
+                                                            <th>TIPO</th>
+                                                            <th>FECHA CITA</th>
+                                                            <th>HORA CITA</th>
+                                                            <th>FECHA FIN</th>
+                                                            <th>ESTADO CITA</th>
+                                                            <th>CLIENTE</th>
+                                                            <th>FACTURA</th>
+                                                            <th>ACTUALIZAR</th>
+                                                            <th>PAGOS</th>
+                                                            <th>ELIMINAR</th>
+								
 							</tr>
 						</thead>
 						<tbody>
+                                                    <%
+                                                                                  
+                                                    List<Cita> listacitas = (List<Cita>) request.getAttribute("listacita");
+                                                    if (listacitas != null) {
+                                                      for (Cita z : listacitas) {
+
+                                                      %> 
 							<tr class="text-center" >
-								<td>1</td>
-								<td>NOMBRE CLIENTE</td>
-								<td>2017/10/8</td>
-								<td>2017/10/10</td>
-								<td>Pendiente</td>
+								<td><%= z.getIdcita()%></td>
+                                                                <td><%= z.getIdtipocita()%></td>
+                                                                <td><%= z.getFechacita()%></td>
+                                                                <td><%= z.getHora()%></td>
+                                                                <td><%= z.getEstado()%></td>
+                                                                <td><%= z.getFechafinalizacion()%></td>
+                                                                <td><%= z.getIdcliente()%></td>
 								<td>
 									<a href="#" class="btn btn-info">
 	  									<i class="fas fa-file-pdf"></i>	
@@ -104,100 +121,21 @@
 									</a>
 								</td>
 								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
+                                                                    <form action="ServletCitas?opcion=4" method="post">
+                                                
+                                                                        <input type="text" name="idcita" value="<%= z.getIdcita()%>" hidden="">
+                                                                        <button type="submit" class="btn btn-warning">
+                                                                            <i class="far fa-trash-alt"></i>
+                                                                        </button>
+                                                                    </form>
+									
 								</td>
 							</tr>
-							<tr class="text-center" >
-								<td>2</td>
-								<td>NOMBRE CLIENTE</td>
-								<td>2017/10/8</td>
-								<td>2017/10/10</td>
-								<td>Finalizado</td>
-								<td>
-									<a href="#" class="btn btn-info">
-	  									<i class="fas fa-file-pdf"></i>	
-									</a>
-								</td>
-								<td>
-									<a href="reservation-update.jsp" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<a href="payment.jsp" class="btn btn-info">
-	  									<i class="fas fa-dollar-sign"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>3</td>
-								<td>NOMBRE CLIENTE</td>
-								<td>2017/10/8</td>
-								<td>2017/10/10</td>
-								<td>Finalizado</td>
-								<td>
-									<a href="#" class="btn btn-info">
-	  									<i class="fas fa-file-pdf"></i>	
-									</a>
-								</td>
-								<td>
-									<a href="reservation-update.jsp" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<a href="payment.jsp" class="btn btn-info">
-	  									<i class="fas fa-dollar-sign"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>4</td>
-								<td>NOMBRE CLIENTE</td>
-								<td>2017/10/8</td>
-								<td>2017/10/10</td>
-								<td>Pendiente</td>
-								<td>
-									<a href="#" class="btn btn-info">
-	  									<i class="fas fa-file-pdf"></i>	
-									</a>
-								</td>
-								<td>
-									<a href="reservation-update.jsp" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<a href="payment.jsp" class="btn btn-info">
-	  									<i class="fas fa-dollar-sign"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
+                                                        <%
+                                                            }}
+							%> 
+							
+							
 						</tbody>
 					</table>
 				</div>
