@@ -116,7 +116,7 @@
                                         <td><%= z.getHora()%></td>
                                         <td><%= z.getIdcliente()%></td>
                                         <td>
-                                            <form action="ServletCitas?opcion=4" method="post">
+                                            <form action="ServletCitas?opcion=41" method="post">
                                                 
                                                 <input type="text" name="idcita" value="<%= z.getIdcita()%>" hidden="">
                                                 <button type="submit" class="btn btn-warning">
