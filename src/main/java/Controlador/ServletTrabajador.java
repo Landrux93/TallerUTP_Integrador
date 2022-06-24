@@ -4,8 +4,13 @@
  */
 package Controlador;
 
+import Entidad.Cita;
+import Entidad.Trabajador;
+import Modelo.ModeloCita;
+import Modelo.ModeloTrabajador;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +31,8 @@ public class ServletTrabajador extends HttpServlet {
    * @throws ServletException if a servlet-specific error occurs
    * @throws IOException if an I/O error occurs
    */
+    
+    ModeloTrabajador ModT= new ModeloTrabajador();
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
@@ -81,5 +88,49 @@ public class ServletTrabajador extends HttpServlet {
   public String getServletInfo() {
     return "Short description";
   }// </editor-fold>
+  
+  protected void service(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+            int op = Integer.parseInt(request.getParameter("opciontrab"));
+        //String accion = request.getParameter("accion");
+        
+        switch (op) {
+            case 1:
+            insertaTrabajador(request, response);
+            break;
+            case 2:
+            listaTrabajador(request, response);
+            break;
+        default:
+            throw new AssertionError();
+    }
+        
+  }
+protected void insertaTrabajador(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+    
+    Trabajador trab1= new Trabajador();
+    trab1.setIdtipotrabajador(request.getParameter("tipotrabajador"));
+    trab1.setNombretrabajador(request.getParameter("trabajador_nombre"));
+    trab1.setApellidopaternotrabajador(request.getParameter("trabajador_apepat"));
+    trab1.setApellidomaternotrabajador(request.getParameter("trabajador_apemat"));
+    trab1.setCelularestrabajador(request.getParameter("trabajador_telefono"));
+    trab1.setCorreotrabajador(request.getParameter("trabajador_correo1"));
+    trab1.setContrasenatrabajador(request.getParameter("trabajador_passwd"));
+    ModeloTrabajador modtrab= new ModeloTrabajador();
+    ModT.insertaTrabajador(trab1);
+    //(request, response);
+    //request.getRequestDispatcher("/reservation-new.jsp").forward(request, response);
+    listaTrabajador(request, response);
+  }
 
+protected void listaTrabajador(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+    
+        ModeloTrabajador modeloTrab= new ModeloTrabajador();
+        List<Trabajador> listaTrabajador= modeloTrab.listaTrabajador("");
+        
+        request.setAttribute("listatrabajadores", listaTrabajador);
+        request.getRequestDispatcher("/user-list.jsp").forward(request, response);
+  }
 }

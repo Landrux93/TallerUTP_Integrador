@@ -63,10 +63,10 @@
 							<a href="#" class="nav-btn-submenu"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Trabajador  <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="user-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Trabajador</a>
+									<a href="ServletRutas?ruta=registraTrabajador"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Trabajador</a>
 								</li>
 								<li>
-									<a href="user-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Trabajador</a>
+									<a href="ServletRutas?ruta=listarTrabajadores"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Trabajador</a>
 								</li>
 								<li>
 									<a href="user-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Trabajador</a>
@@ -78,7 +78,7 @@
 							<a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Citas <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="reservation-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Atención a domicilio</a>
+									<a href="ServletCitas?opcion=2"><i class="fas fa-plus fa-fw"></i> &nbsp; Atención a domicilio</a>
 								</li>
 
 								<li>

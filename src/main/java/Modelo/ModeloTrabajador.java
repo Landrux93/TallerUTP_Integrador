@@ -72,16 +72,15 @@ public class ModeloTrabajador {
         PreparedStatement pstm = null;
         try {
             conn = MySQLConexion.getConexion();
-            String sql = "{call agregartrabajador(?,?,?,?,?,?,?,?)}";
+            String sql = "{call agregartrabajador(?,?,?,?,?,?,?)}";
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, trabajador.getIdtrabajador());
-            pstm.setString(2, trabajador.getIdtipotrabajador());
-            pstm.setString(3, trabajador.getNombretrabajador());
-            pstm.setString(4, trabajador.getApellidopaternotrabajador());
-            pstm.setString(5, trabajador.getApellidomaternotrabajador());
-            pstm.setString(6, trabajador.getCelularestrabajador());
-            pstm.setString(7, trabajador.getCorreotrabajador());
-            pstm.setString(8, trabajador.getContrasenatrabajador());
+            pstm.setString(1, trabajador.getIdtipotrabajador());
+            pstm.setString(2, trabajador.getNombretrabajador());
+            pstm.setString(3, trabajador.getApellidopaternotrabajador());
+            pstm.setString(4, trabajador.getApellidomaternotrabajador());
+            pstm.setString(5, trabajador.getCelularestrabajador());
+            pstm.setString(6, trabajador.getCorreotrabajador());
+            pstm.setString(7, trabajador.getContrasenatrabajador());
             salida = pstm.executeUpdate();
 
         } catch (Exception e) {

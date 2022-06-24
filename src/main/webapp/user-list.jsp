@@ -11,8 +11,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Lista Técnicos</title>
-
 <%@include file="libreria.jsp" %>
+<%@page import="java.util.List"%>
+<%@page import="Entidad.Cliente"%>
+<%@page import="Entidad.Trabajador"%>
 
 
 </head>
@@ -48,13 +50,13 @@
 			<div class="container-fluid">
 				<ul class="full-box list-unstyled page-nav-tabs">
 					<li>
-						<a href="user-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO TÉCNICO</a>
+						<a href="user-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO TRABAJADOR</a>
 					</li>
 					<li>
-						<a class="active" href="user-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE TÉCNICOS</a>
+						<a class="active" href="user-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE TRABAJADORES</a>
 					</li>
 					<li>
-						<a href="user-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR TÉCNICO</a>
+						<a href="user-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR TRABAJADOR</a>
 					</li>
 				</ul>	
 			</div>
@@ -65,26 +67,29 @@
 					<table class="table table-dark table-sm">
 						<thead>
 							<tr class="text-center roboto-medium">
-								<th>#</th>
+								
 								<th>DNI</th>
-								<th>NOMBRE</th>
-								<th>APELLIDO</th>
+								<th>NOMBRES Y APELLIDOS</th>
 								<th>TELÉFONO</th>
-								<th>PERMISO</th>
-								<th>EMAIL</th>
+								<th>CORREO</th>
+								<th>CONTRASEÑA</th>
 								<th>ACTUALIZAR</th>
 								<th>ELIMINAR</th>
 							</tr>
 						</thead>
 						<tbody>
+                                                                <%
+                                                                List<Trabajador> listaTrabajador = (List<Trabajador>) request.getAttribute("listatrabajadores");
+                                                                if (listaTrabajador != null) {
+                                                                  for (Trabajador y : listaTrabajador) {
+
+                                                                %> 
 							<tr class="text-center" >
-								<td>1</td>
-								<th>03045643</th>
-								<th>NOMBRE DE TECNICO</th>
-								<th>APELLIDO DE TECNICO</th>
-								<th>2345456</th>
-								<th>PERMISO</th>
-								<th>TECNICO@ADMIN.COM</th>
+								<td><%= y.getIdtrabajador()%></td>
+								<th><%= y.getNombretrabajador()%> <%= y.getApellidopaternotrabajador()%> <%= y.getApellidomaternotrabajador()%></th>
+								<th><%= y.getCelularestrabajador()%></th>
+								<th><%= y.getCorreotrabajador()%></th>
+								<th><%= y.getContrasenatrabajador()%></th>
 								<td>
 									<a href="user-update.jsp" class="btn btn-success">
 	  									<i class="fas fa-sync-alt"></i>	
@@ -98,69 +103,11 @@
 									</form>
 								</td>
 							</tr>
-							<tr class="text-center" >
-								<td>2</td>
-								<th>03045643</th>
-								<th>NOMBRE DE TECNICO</th>
-								<th>APELLIDO DE TECNICO</th>
-								<th>2345456</th>
-								<th>PERMISO</th>
-								<th>TECNICO@ADMIN.COM</th>
-								<td>
-									<a href="user-update.jsp" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>3</td>
-								<th>03045643</th>
-								<<th>NOMBRE DE TECNICO</th>
-								<th>APELLIDO DE TECNICO</th>
-								<th>2345456</th>
-								<th>PERMISO</th>
-								<th>TECNICO@ADMIN.COM</th>
-								<td>
-									<a href="user-update.jsp" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>4</td>
-								<th>03045643</th>
-								<th>NOMBRE DE TECNICO</th>
-								<th>APELLIDO DE TECNICO</th>
-								<th>2345456</th>
-								<th>PERMISO</th>
-								<th>TECNICO@ADMIN.COM</th>
-								<td>
-									<a href="user-update.jsp" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
+							<%
+                                                                                         }
+                                                                }%>
+							
+							
 						</tbody>
 					</table>
 				</div>

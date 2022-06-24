@@ -6,8 +6,10 @@ package Controlador;
 
 import Entidad.Cita;
 import Entidad.TipoTrabajador;
+import Entidad.Trabajador;
 import Modelo.ModeloCita;
 import Modelo.ModeloTipoTrabajador;
+import Modelo.ModeloTrabajador;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -94,11 +96,11 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
         //String accion = request.getParameter("accion");
         
         switch (ruta) {
-            case "listarTecnicos":
-            //LlenarDatos(request, response);
+            case "listarTrabajadores":
+            listaTrabajadores(request, response);
             break;
             case "registraTrabajador":
-            //LlenarDatos(request, response);
+            listaTipoTrabajador(request, response);
             break;
             case "ListarClientes":
             //insertaCitas(request, response);
@@ -130,8 +132,21 @@ protected void listaTipoTrabajador(HttpServletRequest request, HttpServletRespon
         
         List<TipoTrabajador> listatipoTrabajador= tipotrabajador.listaTipoTrabajador("");
         
-        request.setAttribute("listacita", listatipoTrabajador);
-        request.getRequestDispatcher("/reservation-list.jsp").forward(request, response);
+        request.setAttribute("listatipotrabajador", listatipoTrabajador);
+        request.getRequestDispatcher("/user-new.jsp").forward(request, response);
+
+        
+    }
+protected void listaTrabajadores(HttpServletRequest request, HttpServletResponse response)//Lista tipo de trabajador para registrar
+    throws ServletException, IOException
+    {
+        
+        ModeloTrabajador trabajadores= new ModeloTrabajador();
+        
+        List<Trabajador> listatrabajadores= trabajadores.listaTrabajador("");
+        
+        request.setAttribute("listatrabajadores", listatrabajadores);
+        request.getRequestDispatcher("/user-list.jsp").forward(request, response);
 
         
     }

@@ -4,16 +4,21 @@
     Author     : LENOVO
 --%>
 
+<%@page import="Entidad.TipoTrabajador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Nuevo Técnico</title>
+	<title>Nuevo Trabajador</title>
+
 <%@include file="libreria.jsp" %>
-
-
+<%@page import="java.util.List"%>
+<%@page import="Modelo.ModeloCliente"%>
+<%@page import="Entidad.Cliente"%>
+<%@page import="Entidad.TipoTrabajador"%>
+<%@page import="Entidad.Cita"%>
 </head>
 <body>
 	
@@ -61,16 +66,30 @@
 			
 			<!-- Content -->
 			<div class="container-fluid">
-				<form action="" class="form-neon" autocomplete="off">
+                            <form action="ServletTrabajador?opciontrab=1"  method="post" class="form-neon" >
 					<fieldset>
 						<legend><i class="far fa-address-card"></i> &nbsp; Información trabajador</legend>
                                                                        <div class="container-fluid">
                                                                         <div class="row">
                                                                      <div class="form-group">
-                                                                    <label for="item_estado" class="bmd-label-floating">TIPO TRABAJADOR </label>
-                                                                    <select class="form-control" name="item_estado" id="item_estado">
+                                                                    <label for="tipotrabajador" class="bmd-label-floating">TIPO TRABAJADOR </label>
+                                                                    <select class="form-control" name="tipotrabajador" id="tipotrabajador">
                                                                         <option value="" selected="" disabled="">Seleccione una opción</option>
-                                                                        <!--<option selected="" value="Habilitado">Control total</option>-->
+                                                                <%
+                                                                List<TipoTrabajador> listatipotrabajador = (List<TipoTrabajador>) request.getAttribute("listatipotrabajador");
+                                                                if (listatipotrabajador != null) {
+                                                                  for (TipoTrabajador y : listatipotrabajador) {
+
+                                                                %>  
+                                                                                    
+
+                                                                                    <option value="<%= y.getIdtipotrabajador()%>"><%= y.getTipotrabajador()%></option>
+                                                                                    
+                                                                                    
+                                                                <%
+                                                                                         }
+                                                                }%>
+                                                                    
                                                                         </select>
                                                                 </div>
                                                                             	<br><br><br>
@@ -78,46 +97,51 @@
                                                             
 								<div class="col-12 col-md-4">
 									<div class="form-group">
-										<label for="usuario_dni" class="bmd-label-floating">Nombre trabajador</label>
-										<input type="text" pattern="[0-9-]{1,20}" class="form-control" name="usuario_dni" id="usuario_dni" maxlength="20">
+										<label for="trabajador_nombre" class="bmd-label-floating">Nombre trabajador</label>
+										<input type="text"  class="form-control" name="trabajador_nombre" id="trabajador_nombre" maxlength="50">
 									</div>
 								</div>
 								
 								<div class="col-12 col-md-4">
 									<div class="form-group">
-										<label for="usuario_nombre" class="bmd-label-floating">Apellido paterno</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,35}" class="form-control" name="usuario_nombre" id="usuario_nombre" maxlength="35">
+										<label for="trabajador_apepat" class="bmd-label-floating">Apellido paterno</label>
+										<input type="text"  class="form-control" name="trabajador_apepat" id="trabajador_apepat" maxlength="50">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group">
-										<label for="usuario_apellido" class="bmd-label-floating">Apellido materno</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,35}" class="form-control" name="usuario_apellido" id="usuario_apellido" maxlength="35">
+										<label for="trabajador_apemat" class="bmd-label-floating">Apellido materno</label>
+										<input type="text"  class="form-control" name="trabajador_apemat" id="trabajador_apemat" maxlength="50">
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group">
-										<label for="usuario_telefono" class="bmd-label-floating">Celular</label>
-										<input type="text" pattern="[0-9()+]{1,20}" class="form-control" name="usuario_telefono" id="usuario_telefono" maxlength="20">
+										<label for="trabajador_telefono" class="bmd-label-floating">Celular</label>
+										<input type="text"  class="form-control" name="trabajador_telefono" id="trabajador_telefono" maxlength="50">
 									</div>
 								</div>
                                                                             
                                                                 <div class="col-12 col-md-6">
 									<div class="form-group">
-										<label for="usuario_email" class="bmd-label-floating">Correo</label>
-										<input type="email" class="form-control" name="usuario_email" id="usuario_email" maxlength="70">
+										<label for="trabajador_correo1" class="bmd-label-floating">Correo</label>
+										<input type="email" class="form-control" name="trabajador_correo1" id="trabajador_correo1" maxlength="100">
 									</div>
 								</div>
                                                  
                                               
 								<div class="col-12 col-md-6">
 									<div class="form-group">
-										<label for="usuario_clave_1" class="bmd-label-floating">Contraseña</label>
-										<input type="password" class="form-control" name="usuario_clave_1" id="usuario_clave_1" maxlength="200">
+										<label for="trabajador_passwd" class="bmd-label-floating">Contraseña</label>
+										<input type="password" class="form-control" name="trabajador_passwd" id="trabajador_passwd" maxlength="20">
 									</div>
 								</div>
 							</div>
 						</div>
+                                                                <p class="text-center" style="margin-top: 40px;">
+						<button type="reset" class="btn btn-raised btn-secondary btn-sm"><i class="fas fa-paint-roller"></i> &nbsp; LIMPIAR</button>
+						&nbsp; &nbsp;
+						<button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp; GUARDAR</button>
+                                                </p>
 					</fieldset>
 					<br><br><br>
 				
@@ -131,7 +155,7 @@
                                             <option value="Deshabilitado">Registrar</option>
                                         </select>
                                     </div>-->
-                                </div>
+                                
 							
 					<br><br><br>
 					<fieldset>
@@ -149,11 +173,7 @@
 							</div>
 						</div>
 					</fieldset>
-					<p class="text-center" style="margin-top: 40px;">
-						<button type="reset" class="btn btn-raised btn-secondary btn-sm"><i class="fas fa-paint-roller"></i> &nbsp; LIMPIAR</button>
-						&nbsp; &nbsp;
-						<button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp; GUARDAR</button>
-					</p>
+					
 				</form>
 			</div>
 			
