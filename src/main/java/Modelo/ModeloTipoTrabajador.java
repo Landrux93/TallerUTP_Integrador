@@ -20,7 +20,7 @@ public class ModeloTipoTrabajador {
     public ModeloTipoTrabajador(){
     
     }
-    
+    //hola alma
     public List<TipoTrabajador> listaTipoTrabajador(String apellidos) {
     List<TipoTrabajador> lista = new ArrayList<TipoTrabajador>();
 
