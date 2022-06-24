@@ -10,18 +10,18 @@ public class TipoTrabajador {
     public TipoTrabajador() {
     }
 
-    private String idtrabajador;
+    private String idtipotrabajador;
 
     private String tipotrabajador;
 
     private String idrol;
 
-    public String getIdtrabajador() {
-        return idtrabajador;
+    public String getIdtipotrabajador() {
+        return idtipotrabajador;
     }
 
-    public void setIdtrabajador(String idtrabajador) {
-        this.idtrabajador = idtrabajador;
+    public void setIdtipotrabajador(String idtipotrabajador) {
+        this.idtipotrabajador = idtipotrabajador;
     }
 
     public String getTipotrabajador() {

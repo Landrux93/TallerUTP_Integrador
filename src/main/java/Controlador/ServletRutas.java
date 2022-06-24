@@ -5,7 +5,9 @@
 package Controlador;
 
 import Entidad.Cita;
+import Entidad.TipoTrabajador;
 import Modelo.ModeloCita;
+import Modelo.ModeloTipoTrabajador;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -95,6 +97,9 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
             case "listarTecnicos":
             //LlenarDatos(request, response);
             break;
+            case "registraTrabajador":
+            //LlenarDatos(request, response);
+            break;
             case "ListarClientes":
             //insertaCitas(request, response);
             break;
@@ -113,6 +118,19 @@ protected void ListarCitas(HttpServletRequest request, HttpServletResponse respo
         List<Cita> listacita= cita.listaCita("");
         
         request.setAttribute("listacita", listacita);
+        request.getRequestDispatcher("/reservation-list.jsp").forward(request, response);
+
+        
+    }
+protected void listaTipoTrabajador(HttpServletRequest request, HttpServletResponse response)//Lista tipo de trabajador para registrar
+    throws ServletException, IOException
+    {
+        
+        ModeloTipoTrabajador tipotrabajador= new ModeloTipoTrabajador();
+        
+        List<TipoTrabajador> listatipoTrabajador= tipotrabajador.listaTipoTrabajador("");
+        
+        request.setAttribute("listacita", listatipoTrabajador);
         request.getRequestDispatcher("/reservation-list.jsp").forward(request, response);
 
         
