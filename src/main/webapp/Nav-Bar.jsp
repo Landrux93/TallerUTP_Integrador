@@ -60,16 +60,16 @@
 						</li>
 
 						<li>
-							<a href="#" class="nav-btn-submenu"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Técnicos <i class="fas fa-chevron-down"></i></a>
+							<a href="#" class="nav-btn-submenu"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Trabajador  <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="user-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Técnico</a>
+									<a href="user-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Trabajador</a>
 								</li>
 								<li>
-									<a href="user-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Técnicos</a>
+									<a href="user-list.jsp"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Trabajador</a>
 								</li>
 								<li>
-									<a href="user-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Técnico</a>
+									<a href="user-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Trabajador</a>
 								</li>
 							</ul>
 						</li>
