@@ -113,7 +113,7 @@ public class ServletCliente extends HttpServlet {
           throws ServletException, IOException {
     Cliente a = new Cliente();
     a.setDni(Integer.parseInt(request.getParameter("dni")));
-    a.setNombrecliente(request.getParameter("nombre"));
+    a.setNombrecliente(request.getParameter("nombrec"));
     a.setApellidopaternocliente(request.getParameter("apellidopa"));
     a.setApellidomaternocliente(request.getParameter("apellidoma"));
     a.setNcelularescliente(request.getParameter("celular"));

@@ -59,7 +59,7 @@
                   <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="cliente_nombre" class="bmd-label-floating">Nombre</label>
-                      <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" id="cliente_nombre" name="nombre" maxlength="40">
+                      <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" id="cliente_nombre" name="nombrec" maxlength="40">
                     </div>
                   </div>
                   <div class="col-12 col-md-4">
