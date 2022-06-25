@@ -47,10 +47,6 @@
           <div class="container-fluid">
             <form action="ServletRepuesto" class="form-neon">
               <input type="hidden" name="opc" value="1">
-                            <input type="hidden" name="id" value=<%=id%>>
-              <input type="hidden" name="nombre" value=<%=nombre%>>
-              <input type="hidden" name="apellido" value=<%=apellido%>>
-              <input type="hidden" name="priv" value=<%=privilegio%>>
               <fieldset>
                 <legend><i class="far fa-plus-square"></i> &nbsp; Información del equipo</legend>
                 <div class="container-fluid">

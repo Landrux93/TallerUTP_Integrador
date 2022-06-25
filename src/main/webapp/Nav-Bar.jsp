@@ -1,9 +1,3 @@
-<%-- 
-    Document   : Nav-Bar
-    Created on : Jun 4, 2022, 2:04:58 AM
-    Author     : landrux
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

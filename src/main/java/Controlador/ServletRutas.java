@@ -5,9 +5,15 @@
 package Controlador;
 
 import Entidad.Cita;
+import Entidad.Cliente;
+import Entidad.Equipo;
+import Entidad.TipoHojaServicio;
 import Entidad.TipoTrabajador;
 import Entidad.Trabajador;
 import Modelo.ModeloCita;
+import Modelo.ModeloCliente;
+import Modelo.ModeloEquipo;
+import Modelo.ModeloTipoHojaServicio;
 import Modelo.ModeloTipoTrabajador;
 import Modelo.ModeloTrabajador;
 import java.io.IOException;
@@ -35,6 +41,10 @@ public class ServletRutas extends HttpServlet {
    * @throws ServletException if a servlet-specific error occurs
    * @throws IOException if an I/O error occurs
    */
+    
+    ModeloCliente modcliente= new ModeloCliente();
+    ModeloEquipo modequipo= new ModeloEquipo();
+    ModeloTipoHojaServicio modtiphojaservicio = new ModeloTipoHojaServicio();
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
@@ -139,6 +149,7 @@ public class ServletRutas extends HttpServlet {
       case "equiponew":
         equiponew(request, response);
         break;
+        
       default:
         throw new AssertionError();
     }
@@ -337,11 +348,17 @@ public class ServletRutas extends HttpServlet {
     String nombre = request.getParameter("nombre");
     String apellido = request.getParameter("apellido");
     String privilegio = request.getParameter("priv");
-    request.setAttribute("id", id);
-    request.setAttribute("nombre", nombre);
-    request.setAttribute("apellido", apellido);
-    request.setAttribute("priv", privilegio);
+    
+    List<Cliente> listacliente = modcliente.listaCliente("");
+    List<TipoHojaServicio> listatipohojaserv = modtiphojaservicio.listatipoHojaServicio("");
+    List<Equipo> listaequipo = modequipo.listaEquipos("");
+    
+    request.setAttribute("listacliente", listacliente);
+    request.setAttribute("listatipohojaserv", listatipohojaserv);
+    request.setAttribute("listaequipo", listaequipo);
     request.getRequestDispatcher("/hojaservicionew.jsp").forward(request, response);
+    
+    
 
   }
 
