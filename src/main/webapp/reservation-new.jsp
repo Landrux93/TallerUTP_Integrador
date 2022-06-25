@@ -117,6 +117,10 @@
                                         <td><%= z.getIdcliente()%></td>
                                         <td>
                                             <form action="ServletCitas?opcion=41" method="post">
+                                                            <input type="hidden" name="id" value=<%=id%>>
+              <input type="hidden" name="nombre" value=<%=nombre%>>
+              <input type="hidden" name="apellido" value=<%=apellido%>>
+              <input type="hidden" name="priv" value=<%=privilegio%>>
                                                 
                                                 <input type="text" name="idcita" value="<%= z.getIdcita()%>" hidden="">
                                                 <button type="submit" class="btn btn-warning">

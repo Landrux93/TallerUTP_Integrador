@@ -6,12 +6,12 @@ public class MySQLConexion {
 		Connection con = null;
 		try { 
                 Class.forName("com.mysql.cj.jdbc.Driver"); 
-		String url = "jdbc:mysql://34.176.117.100/tallerutp"; 
-		String usr = "usuario";
-		String psw = "usuario_2022"; 
-                //String url = "jdbc:mysql://localhost/tallerutp"; 
-		//String usr = "root";
-		//String psw = ""; 
+		//String url = "jdbc:mysql://34.176.117.100/tallerutp"; 
+		//String usr = "usuario";
+		//String psw = "usuario_2022"; 
+                String url = "jdbc:mysql://localhost/tallerutp"; 
+		String usr = "root";
+		String psw = ""; 
 		con = DriverManager.getConnection(url,usr,psw); 
 		System.out.println("conexion ok");
 		} catch (ClassNotFoundException ex)

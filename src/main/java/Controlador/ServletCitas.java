@@ -23,8 +23,8 @@ import org.omg.CORBA.MARSHAL;
  */
 public class ServletCitas extends HttpServlet {
 
-    
-    ModeloCita modelocita= new ModeloCita();
+  ModeloCita modelocita = new ModeloCita();
+
   /**
    * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
    * methods.
@@ -42,7 +42,7 @@ public class ServletCitas extends HttpServlet {
       out.println("<!DOCTYPE html>");
       out.println("<html>");
       out.println("<head>");
-      out.println("<title>Servlet ServletCitas</title>");      
+      out.println("<title>Servlet ServletCitas</title>");
       out.println("</head>");
       out.println("<body>");
       out.println("<h1>Servlet ServletCitas at " + request.getContextPath() + "</h1>");
@@ -89,92 +89,126 @@ public class ServletCitas extends HttpServlet {
   public String getServletInfo() {
     return "Short description";
   }// </editor-fold>
-protected void service(HttpServletRequest request, HttpServletResponse response)
+
+  protected void service(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
-        int op = Integer.parseInt(request.getParameter("opcion"));
-        //String accion = request.getParameter("accion");
-        
-        switch (op) {
-            case 1:
-            LlenarDatos(request, response);
-            break;
-            case 2:
-            insertaCitas(request, response);
-            break;
-            case 3:
-            ListarCitas(request, response);
-            break;
-            case 4://eliminar citas
-            EliminarCitas(request, response);
-            break;
-            case 41://eliminar citas-lista citas
-            EliminarCitasLista(request, response);
-            break;
-        default:
-            throw new AssertionError();
+    int op = Integer.parseInt(request.getParameter("opcion"));
+    //String accion = request.getParameter("accion");
+
+    switch (op) {
+      case 1:
+        LlenarDatos(request, response);
+        break;
+      case 2:
+        insertaCitas(request, response);
+        break;
+      case 3:
+        ListarCitas(request, response);
+        break;
+      case 4://eliminar citas
+        EliminarCitas(request, response);
+        break;
+      case 41://eliminar citas-lista citas
+        EliminarCitasLista(request, response);
+        break;
+      default:
+        throw new AssertionError();
     }
-        
+
   }
 
-protected void insertaCitas(HttpServletRequest request, HttpServletResponse response)
+  protected void insertaCitas(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
-    
-    Cita cita= new Cita();
+
+    Cita cita = new Cita();
     cita.setFechacita(request.getParameter("fecha_inicio"));
     cita.setFechafinalizacion(request.getParameter("fecha_final"));
     cita.setHora(request.getParameter("item_hora"));
     cita.setIdtipocita(request.getParameter("item_tipocita"));
     cita.setIdcliente(request.getParameter("item_cliente"));
     cita.setEstado(request.getParameter("item_estado"));
-    ModeloCita modcita= new ModeloCita();
+    String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
+    ModeloCita modcita = new ModeloCita();
     modcita.insertaCita(cita);
     LlenarDatos(request, response);
   }
-protected void LlenarDatos(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException
-    {
-        ModeloCliente cliente= new ModeloCliente();
-        ModeloTipoCita tipocita = new ModeloTipoCita();
-        ModeloCita cita= new ModeloCita();
-        List<Cliente> listacliente= cliente.listaCliente("");
-        List<TipoCita> listatipocita= tipocita.listaTipoCita("");
-        List<Cita> listacita= cita.listaCita("");
-        
-        request.setAttribute("listacita", listacita);
-        request.setAttribute("listacliente", listacliente);
-        request.setAttribute("listatipocita", listatipocita);
-        request.getRequestDispatcher("/reservation-new.jsp").forward(request, response);
 
-        
-    }
-protected void EliminarCitas(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException
-    {
-        String idcita= request.getParameter("idcita");
-        modelocita.eliminaCita(idcita);
-        LlenarDatos(request, response);
+  protected void LlenarDatos(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+    ModeloCliente cliente = new ModeloCliente();
+    ModeloTipoCita tipocita = new ModeloTipoCita();
+    ModeloCita cita = new ModeloCita();
+    List<Cliente> listacliente = cliente.listaCliente("");
+    List<TipoCita> listatipocita = tipocita.listaTipoCita("");
+    List<Cita> listacita = cita.listaCita("");
+    String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
+    request.setAttribute("listacita", listacita);
+    request.setAttribute("listacliente", listacliente);
+    request.setAttribute("listatipocita", listatipocita);
+    request.getRequestDispatcher("/reservation-new.jsp").forward(request, response);
 
-        
-    }
-protected void EliminarCitasLista(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException
-    {
-        String idcita= request.getParameter("idcita");
-        modelocita.eliminaCita(idcita);
-       request.getRequestDispatcher("/reservation-list.jsp").forward(request, response);
+  }
 
-        
-    }
+  protected void EliminarCitas(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+    String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
+    String idcita = request.getParameter("idcita");
+    modelocita.eliminaCita(idcita);
+    LlenarDatos(request, response);
 
-protected void ListarCitas(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException
-    {
-        ModeloCita cita= new ModeloCita();
-        List<Cita> listacita= cita.listaCita("");
-        
-        request.setAttribute("listacita", listacita);
-        request.getRequestDispatcher("/reservation-list.jsp").forward(request, response);
+  }
 
-        
-    }
+  protected void EliminarCitasLista(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+    String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
+    String idcita = request.getParameter("idcita");
+    modelocita.eliminaCita(idcita);
+    request.getRequestDispatcher("/reservation-list.jsp").forward(request, response);
+
+  }
+
+  protected void ListarCitas(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+    ModeloCita cita = new ModeloCita();
+    List<Cita> listacita = cita.listaCita("");
+    String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
+    request.setAttribute("listacita", listacita);
+    request.getRequestDispatcher("/reservation-list.jsp").forward(request, response);
+
+  }
 }

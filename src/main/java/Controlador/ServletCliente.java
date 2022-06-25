@@ -121,6 +121,14 @@ public class ServletCliente extends HttpServlet {
     a.setFechanacimientocliente(request.getParameter("nacimiento"));
     a.setDireccion(request.getParameter("direccion"));
     a.setContrasenacliente(request.getParameter("contrasena"));
+    String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
     obj.insertaCliente(a);
     lista(request, response);
   }
@@ -130,6 +138,14 @@ public class ServletCliente extends HttpServlet {
     String codigo = request.getParameter("codigo");
     request.setAttribute("id", codigo);
     obj.eliminaCliente(codigo);
+    String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
     lista(request, response);
 
   }
@@ -148,6 +164,14 @@ public class ServletCliente extends HttpServlet {
     a.setDireccion(request.getParameter("direccion"));
     a.setContrasenacliente(request.getParameter("contrasena"));
     obj.modificaCliente(a);
+    String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
     lista(request, response);
   }
 
@@ -155,6 +179,14 @@ public class ServletCliente extends HttpServlet {
           throws ServletException, IOException {
     ModeloCliente cliente = new ModeloCliente();
     List<Cliente> lista = cliente.listaCliente("");
+    String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
     request.setAttribute("clientes", lista);
     request.getRequestDispatcher("/client-list.jsp").forward(request, response);
   }
@@ -164,6 +196,14 @@ public class ServletCliente extends HttpServlet {
     String coda = request.getParameter("codigo");
     request.setAttribute("id", coda);
     request.setAttribute("cliente", obj.busca(coda));
+    String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
     request.getRequestDispatcher("/client-update.jsp").forward(request, response);
 
   }
