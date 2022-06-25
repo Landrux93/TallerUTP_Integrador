@@ -42,7 +42,7 @@ public class ServletRutas extends HttpServlet {
    * @throws IOException if an I/O error occurs
    */
     
-    ModeloCliente modcliente= new ModeloCliente();
+    ModeloTrabajador modtrabajdor= new ModeloTrabajador();
     ModeloEquipo modequipo= new ModeloEquipo();
     ModeloTipoHojaServicio modtiphojaservicio = new ModeloTipoHojaServicio();
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -349,11 +349,14 @@ public class ServletRutas extends HttpServlet {
     String apellido = request.getParameter("apellido");
     String privilegio = request.getParameter("priv");
     
-    List<Cliente> listacliente = modcliente.listaCliente("");
+    List<Trabajador> listatrabajador = modtrabajdor.listaTrabajador("");
     List<TipoHojaServicio> listatipohojaserv = modtiphojaservicio.listatipoHojaServicio("");
     List<Equipo> listaequipo = modequipo.listaEquipos("");
-    
-    request.setAttribute("listacliente", listacliente);
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
+    request.setAttribute("listacliente", listatrabajador);
     request.setAttribute("listatipohojaserv", listatipohojaserv);
     request.setAttribute("listaequipo", listaequipo);
     request.getRequestDispatcher("/hojaservicionew.jsp").forward(request, response);
