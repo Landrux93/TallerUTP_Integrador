@@ -12,6 +12,15 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Nueva hoja de servicio</title>
 <%@include file="libreria.jsp" %>
+<%@page import="java.util.List"%>
+<%@page import="Modelo.ModeloTrabajador"%>
+<%@page import="Entidad.Trabajador"%>
+<%@page import="Modelo.ModeloEquipo"%>
+<%@page import="Entidad.Equipo"%>
+<%@page import="Modelo.ModeloTipoHojaServicio"%>
+<%@page import="Entidad.TipoHojaServicio"%>
+<%@page import="Entidad.TipoCita"%>
+<%@page import="Entidad.Cita"%>
 
 
   </head>
@@ -45,42 +54,95 @@
 
           <!--CONTENT-->
           <div class="container-fluid">
-            <form action="ServletRepuesto" class="form-neon">
+              <form action="ServletHojaServicio?" class="form-neon" method="post">
               <input type="hidden" name="opc" value="1">
               <fieldset>
                 <legend><i class="far fa-plus-square"></i> &nbsp; HOJA DE SERVICIO</legend>
                 <div class="container-fluid">
                   <div class="row">
 
-                    <div class="form-group">
-                                                                    <label for="tipotrabajador" class="bmd-label-floating">TIPO HOJA DE SERVICIO</label>
-                                                                    <select class="form-control" name="tipotrabajador" id="tipotrabajador">
-                                                                        <option value="" selected="" disabled="">Seleccione una opción</option>
-                                                                                                                               
-                                                                        </select>
-                                                                </div>
+                                                                <div class="col-12 col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="tipohojaservicio" class="bmd-label-floating">Tipo Hoja de Servicio</label>
+                                                                                <select class="form-control" name="tipohojaservicio" id="tipohojaservicio">
+                                                                                    <option value="" selected="" disabled="">Seleccione una opción</option>
+                                                                   <%
+                                                                List<TipoHojaServicio> listatipohojaserv = (List<TipoHojaServicio>) request.getAttribute("listatipohojaserv");
+                                                                if (listatipohojaserv != null) {
+                                                                  for (TipoHojaServicio y : listatipohojaserv) {
+
+                                                                  %>  
+                                                                                    
+
+                                                                                    <option value="<%= y.getIdtiposervicio()%>"><%= y.getTipohojaservicio()%></option>
+                                                                                    
+                                                                                    
+                                                                                    <%
+                                                                                         }
+                  }%>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-12 col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label for="usuario" class="bmd-label-floating">Usuario</label>
+                                                                                <select class="form-control" name="usuario" id="usuario">
+                                                                                    <option value="" selected="" disabled="">Seleccione una opción</option>
+                                                                   <%
+                                                                List<Trabajador> listacliente = (List<Trabajador>) request.getAttribute("listacliente");
+                                                                if (listacliente != null) {
+                                                                  for (Trabajador y : listacliente) {
+
+                                                                  %>  
+                                                                                    
+
+                                                                                    <option value="<%= y.getIdtrabajador()%>"><%= y.getNombretrabajador()%> <%= y.getApellidopaternotrabajador()%></option>
+                                                                                    
+                                                                                    
+                                                                                    <%
+                                                                                         }
+                  }%>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
                     <div class="col-12 col-md-4">
                       <div class="form-group">
-                        <label for="item_marca" class="bmd-label-floating">Usuario</label>
-                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="marca" id="marca" maxlength="140">
-                      </div>
-                    </div>
+                                                                                <label for="numeroserie" class="bmd-label-floating">Numero de Serie</label>
+                                                                                <select class="form-control" name="numeroserie" id="numeroserie">
+                                                                                    <option value="" selected="" disabled="">Seleccione una opción</option>
+                                                                   <%
+                                                                List<Equipo> listaequipo = (List<Equipo>) request.getAttribute("listaequipo");
+                                                                if (listaequipo != null) {
+                                                                  for (Equipo y : listaequipo) {
+
+                                                                  %>  
+                                                                                    
+
+                                                                                    <option value="<%= y.getNserie()%>"><%= y.getMarca()%> <%= y.getModelo()%></option>
+                                                                                    
+                                                                                    
+                                                                                    <%
+                                                                                         }
+                  }%>
+                                                                                </select>
+                                                                            </div>
+                    </div><!-- comment -->
                     <div class="col-12 col-md-4">
                       <div class="form-group">
-                        <label for="item_serie" class="bmd-label-floating">Serie</label>
-                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="serie" id="serie" maxlength="140">
+                        <label for="diagnostico" class="bmd-label-floating">Diagnostico</label>
+                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="diagnostico" id="diagnostico" maxlength="140">
                       </div>
                     </div><!-- comment -->
                     <div class="col-12 col-md-4">
                       <div class="form-group">
-                        <label for="item_modelo" class="bmd-label-floating">Diagnostico</label>
-                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="modelo" id="modelo" maxlength="140">
+                        <label for="pagoneto" class="bmd-label-floating">pago neto</label>
+                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="pagoneto" id="pagoneto" maxlength="140">
                       </div>
                     </div><!-- comment -->
                     <div class="col-12 col-md-4">
                       <div class="form-group">
-                        <label for="item_costo" class="bmd-label-floating">IGV</label>
-                        <input type="text"  class="form-control" name="costo" id="costo" maxlength="140">
+                        <label for="igv" class="bmd-label-floating">IGV</label>
+                        <input type="text"  class="form-control" name="igv" id="igv" maxlength="140">
                       </div>
                     </div>
                   </div>

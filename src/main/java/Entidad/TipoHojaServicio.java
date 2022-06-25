@@ -23,4 +23,20 @@ public class TipoHojaServicio {
      */
     private String tipohojaservicio;
 
+    public String getIdtiposervicio() {
+        return idtiposervicio;
+    }
+
+    public void setIdtiposervicio(String idtiposervicio) {
+        this.idtiposervicio = idtiposervicio;
+    }
+
+    public String getTipohojaservicio() {
+        return tipohojaservicio;
+    }
+
+    public void setTipohojaservicio(String tipohojaservicio) {
+        this.tipohojaservicio = tipohojaservicio;
+    }
+
 }
