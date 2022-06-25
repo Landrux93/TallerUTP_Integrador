@@ -46,6 +46,10 @@
           <form action="ServletCliente" class="form-neon" method="post">
             <input type="hidden" name="opc" value="3">
             <input type="hidden" name="codigo" value=<%=cliente.getIdcliente()%>>
+                          <input type="hidden" name="id" value=<%=id%>>
+              <input type="hidden" name="nombre" value=<%=nombre%>>
+              <input type="hidden" name="apellido" value=<%=apellido%>>
+              <input type="hidden" name="priv" value=<%=privilegio%>>
             <fieldset>
               <legend><i class="fas fa-user"></i> &nbsp; Información básica</legend>
               <div class="container-fluid">

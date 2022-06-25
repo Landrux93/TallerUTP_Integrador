@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Nuevo cliente</title>
-<%@include file="libreria.jsp" %>
+    <%@include file="libreria.jsp" %>
 
 
   </head>
@@ -42,6 +42,10 @@
         <div class="container-fluid">
           <form action="ServletCliente" class="form-neon" method="post">
             <input type="hidden" name="opc" value="1">
+            <input type="hidden" name="id" value=<%=id%>>
+            <input type="hidden" name="nombre" value=<%=nombre%>>
+            <input type="hidden" name="apellido" value=<%=apellido%>>
+            <input type="hidden" name="priv" value=<%=privilegio%>>
             <fieldset>
               <legend><i class="fas fa-user"></i> &nbsp; Información básica</legend>
               <div class="container-fluid">
