@@ -121,6 +121,14 @@ public class ServletRepuesto extends HttpServlet {
     repuesto.setCostorepuesto(Double.parseDouble(request.getParameter("costo")));
     repuesto.setStock(Integer.parseInt(request.getParameter("stock")));
     obj.insertaRepuesto(repuesto);
+        String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
     lista(request, response);
   }
 
@@ -128,6 +136,14 @@ public class ServletRepuesto extends HttpServlet {
           throws ServletException, IOException {
     String codigo = request.getParameter("codigo");
     obj.eliminaRepuesto(codigo);
+        String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
     lista(request, response);
 
   }
@@ -144,6 +160,14 @@ public class ServletRepuesto extends HttpServlet {
     repuesto.setCostorepuesto(Double.parseDouble(request.getParameter("costo")));
     repuesto.setStock(Integer.parseInt(request.getParameter("stock")));
     obj.modificarepuesto(repuesto);
+        String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
     lista(request, response);
   }
   
@@ -151,6 +175,14 @@ public class ServletRepuesto extends HttpServlet {
           throws ServletException, IOException {
     ModeloRepuesto repuesto = new ModeloRepuesto();
     List<Repuesto> lista = repuesto.listaRepuesto("");
+        String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
     request.setAttribute("repuestos", lista);
     request.getRequestDispatcher("/item-list.jsp").forward(request, response);
   }
@@ -159,6 +191,14 @@ public class ServletRepuesto extends HttpServlet {
           throws ServletException, IOException {
     String coda = request.getParameter("codigo");
     request.setAttribute("id", coda);
+        String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
     request.setAttribute("repuesto", obj.busca(coda));
     request.getRequestDispatcher("/item-update.jsp").forward(request, response);
 

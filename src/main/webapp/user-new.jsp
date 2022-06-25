@@ -67,6 +67,10 @@
 			<!-- Content -->
 			<div class="container-fluid">
                             <form action="ServletTrabajador?opciontrab=1"  method="post" class="form-neon" >
+                                            <input type="hidden" name="id" value=<%=id%>>
+              <input type="hidden" name="nombre" value=<%=nombre%>>
+              <input type="hidden" name="apellido" value=<%=apellido%>>
+              <input type="hidden" name="priv" value=<%=privilegio%>>
 					<fieldset>
 						<legend><i class="far fa-address-card"></i> &nbsp; Información trabajador</legend>
                                                                        <div class="container-fluid">

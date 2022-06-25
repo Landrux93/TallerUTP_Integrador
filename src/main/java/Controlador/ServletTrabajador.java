@@ -118,6 +118,14 @@ protected void insertaTrabajador(HttpServletRequest request, HttpServletResponse
     trab1.setCorreotrabajador(request.getParameter("trabajador_correo1"));
     trab1.setContrasenatrabajador(request.getParameter("trabajador_passwd"));
     ModeloTrabajador modtrab= new ModeloTrabajador();
+        String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
     ModT.insertaTrabajador(trab1);
     //(request, response);
     //request.getRequestDispatcher("/reservation-new.jsp").forward(request, response);
@@ -131,6 +139,14 @@ protected void listaTrabajador(HttpServletRequest request, HttpServletResponse r
         List<Trabajador> listaTrabajador= modeloTrab.listaTrabajador("");
         
         request.setAttribute("listatrabajadores", listaTrabajador);
+            String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
         request.getRequestDispatcher("/user-list.jsp").forward(request, response);
   }
 }
