@@ -16,6 +16,10 @@
         <servlet-name>ServletCitas</servlet-name>
         <servlet-class>Controlador.ServletCitas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletLogin</servlet-name>
+        <servlet-class>Controlador.ServletLogin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletCliente</servlet-name>
         <url-pattern>/ServletCliente</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ServletCitas</servlet-name>
         <url-pattern>/ServletCitas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletLogin</servlet-name>
+        <url-pattern>/ServletLogin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
