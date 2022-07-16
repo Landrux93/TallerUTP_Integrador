@@ -54,7 +54,7 @@
 
           <!--CONTENT-->
           <div class="container-fluid">
-              <form action="ServletHojaServicio?" class="form-neon" method="post">
+              <form action="ServletRutas?ruta=insertahojaservicionew" class="form-neon" method="post">
               <input type="hidden" name="opc" value="1">
               <fieldset>
                 <legend><i class="far fa-plus-square"></i> &nbsp; HOJA DE SERVICIO</legend>

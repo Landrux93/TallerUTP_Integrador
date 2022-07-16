@@ -5,7 +5,9 @@
 package Modelo;
 
 import Entidad.TipoTrabajador;
+import Entidad.Trabajador;
 import Util.MySQLConexion;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -58,4 +60,24 @@ public class ModeloTipoTrabajador {
 
     return lista;
   }
+    public TipoTrabajador tipoTrabajadorTrab(Trabajador trab1) {
+    TipoTrabajador tt= new TipoTrabajador();
+    try {
+      String sql = "select * from tipotrabajador where idtipotrabajador=?";
+      Connection cn = MySQLConexion.getConexion();
+      //System.out.println(user + pass);
+      CallableStatement st = cn.prepareCall(sql);
+      st.setString(1, trab1.getIdtipotrabajador());
+      ResultSet rs = st.executeQuery();
+      if (rs.next()) {
+        tt.setIdrol(rs.getString(3));
+        tt.setIdtipotrabajador(rs.getString(1));
+        tt.setTipotrabajador(rs.getString(2));
+      }
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
+    return tt;
+  }
+    
 }

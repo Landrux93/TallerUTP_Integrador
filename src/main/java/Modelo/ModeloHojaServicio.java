@@ -21,7 +21,7 @@ public class ModeloHojaServicio {
      public ModeloHojaServicio() {
     } 
     
-    public List<HojaServicio> listaCita(String apellidos) {
+    public List<HojaServicio> listaHojaServicio(String apellidos) {
     List<HojaServicio> lista = new ArrayList<HojaServicio>();
 
     Connection conn = null;

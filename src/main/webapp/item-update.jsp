@@ -86,7 +86,7 @@
                   <div class="col-12 col-md-4">
                     <div class="form-group">
                       <label for="item_stock" class="bmd-label-floating">Stock</label>
-                      <input type="num" pattern="[0-9]{1,9}" class="form-control" name="stock" id="stock"  value="<%=repuesto.getStock()%>" maxlength="9">
+                      <input type="number" pattern="[0-9]{1,9}" class="form-control" name="stock" id="stock"  value="<%=repuesto.getStock()%>" maxlength="9">
                     </div>
                   </div>
                 </div>

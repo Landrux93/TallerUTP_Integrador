@@ -17,7 +17,9 @@
                         <i class="fab fa-dashcube fa-fw"></i> &nbsp; DASHBOARD
                     </h3>
                     <p class="text-justify">
-                        El Taller UTP, es una empresa se dedica a la reparación y mantenimiento de aparatos de computo de todas las marcas, cuenta con un servicio técnico que atiende las solicitudes de instalaciones, reparaciones y mantenimiento para brindar la mejor experiencia a los clientes.
+                        El Taller UTP, es una empresa se dedica a la reparación y mantenimiento de aparatos de computo de todas las marcas, 
+                        cuenta con un servicio técnico que atiende las solicitudes de instalaciones, reparaciones y mantenimiento para brindar 
+                        la mejor experiencia a los clientes.
                     </p>
                 </div>
 

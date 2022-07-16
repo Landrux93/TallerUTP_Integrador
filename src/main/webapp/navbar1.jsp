@@ -4,11 +4,8 @@
   <head>
      <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inicio</title>
+        <title>JSP Page</title>
     </head>
-    
-    <%@page import="Entidad.Cliente"%>
-    <%@page import="Entidad.Trabajador"%>
     <body>
         <section class="full-box nav-lateral">
 			<div class="full-box nav-lateral-bg show-nav-lateral"></div>
@@ -17,43 +14,7 @@
 					<i class="far fa-times-circle show-nav-lateral"></i>
 					<img src="./assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
 					<figcaption class="roboto-medium text-center">
-                                            <%
-                                            HttpSession misesion= request.getSession();
-                                            Cliente cl1= new Cliente();
-                                            Trabajador trab1= new Trabajador();
-                                            cl1= (Cliente)misesion.getAttribute("usuarioCliente");
-                                            trab1= (Trabajador)misesion.getAttribute("usuarioTrabajador");
-                                            if (trab1==null) {
-                                                    
-                                                    cl1.getNombrecliente();
-                                                    cl1.getApellidopaternocliente();
-                                                  out.print(cl1.getNombrecliente()+' '+cl1.getApellidopaternocliente());
-                                                }
-                                                else{
-                                                    
-                                                    trab1.getNombretrabajador();
-                                                    trab1.getApellidopaternotrabajador();
-                                                    out.print(trab1.getNombretrabajador()+' '+trab1.getApellidopaternotrabajador());
-                                                    
-                                                }
-                                            
-                                            
-                                           %>
-                                           <br><small class="roboto-condensed-light">
-                                               <%
-                                                if(trab1==null) {
-                                                    
-                                                    out.print("CLIENTE");
-                                                }
-                                                else{
-                                                    
-                                                    out.print(trab1.getIdtipotrabajador());
-                                                    
-                                                }  
-                                               
-                                               
-                                           
-                                           %></small>
+						Alma Valer <br><small class="roboto-condensed-light">Administrador</small>
 					</figcaption>
 				</figure>
 				<div class="full-box nav-lateral-bar"></div>
@@ -130,19 +91,6 @@
 					</ul>
 				</nav>
 			</div>
-		
-        
-        <nav class="full-box navbar-info">
-          <a href="#" class="float-left show-nav-lateral">
-            <i class="fas fa-exchange-alt"></i>
-          </a>
-          <a href="user-update.jsp">
-            <i class="fas fa-user-cog"></i>
-          </a>
-          <a href="#" class="btn-exit-system">
-            <i class="fas fa-power-off"></i>
-          </a>
-        </nav>
-            </section>
+		</section>
   </body>
 </html>

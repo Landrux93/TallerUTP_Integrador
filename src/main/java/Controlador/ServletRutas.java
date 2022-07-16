@@ -7,12 +7,14 @@ package Controlador;
 import Entidad.Cita;
 import Entidad.Cliente;
 import Entidad.Equipo;
+import Entidad.HojaServicio;
 import Entidad.TipoHojaServicio;
 import Entidad.TipoTrabajador;
 import Entidad.Trabajador;
 import Modelo.ModeloCita;
 import Modelo.ModeloCliente;
 import Modelo.ModeloEquipo;
+import Modelo.ModeloHojaServicio;
 import Modelo.ModeloTipoHojaServicio;
 import Modelo.ModeloTipoTrabajador;
 import Modelo.ModeloTrabajador;
@@ -149,6 +151,10 @@ public class ServletRutas extends HttpServlet {
       case "equiponew":
         equiponew(request, response);
         break;
+        
+      case "insertahojaservicionew":
+          insertahojaservicionew(request, response);
+          break;
         
       default:
         throw new AssertionError();
@@ -359,6 +365,31 @@ public class ServletRutas extends HttpServlet {
     request.setAttribute("listacliente", listatrabajador);
     request.setAttribute("listatipohojaserv", listatipohojaserv);
     request.setAttribute("listaequipo", listaequipo);
+    request.getRequestDispatcher("/hojaservicionew.jsp").forward(request, response);
+    
+    
+
+  }
+  protected void insertahojaservicionew(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+    String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
+    HojaServicio hoja1= new HojaServicio();
+    hoja1.setIdtipohojaservicio(request.getParameter("tipohojaservicio"));
+    hoja1.setIdusuario(request.getParameter("usuario"));
+    hoja1.setNserie(request.getParameter("numeroserie"));
+    hoja1.setDiagnostico(request.getParameter("diagnostico"));
+    hoja1.setPagoneto(Double.parseDouble(request.getParameter("pagoneto")));
+    hoja1.setIGV(Double.parseDouble((request.getParameter("igv"))));
+    ModeloHojaServicio modehs= new ModeloHojaServicio();
+    modehs.insertaHojaServicio(hoja1);
+    //(request, response);
     request.getRequestDispatcher("/hojaservicionew.jsp").forward(request, response);
     
     

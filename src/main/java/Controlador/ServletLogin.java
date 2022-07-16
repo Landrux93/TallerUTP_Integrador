@@ -5,6 +5,7 @@
 package Controlador;
 
 import Entidad.*;
+import Modelo.ModeloCliente;
 import Modelo.ModeloLogin;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,13 +13,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author landrux
  */
 public class ServletLogin extends HttpServlet {
-
+ModeloCliente obj1 = new ModeloCliente();
   /**
    * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
    * methods.
@@ -93,6 +95,10 @@ public class ServletLogin extends HttpServlet {
       case 1:
         verificar(request, response);
         break;
+        
+      case 2:
+        insertaLogin(request, response);
+        break;
       default:
         throw new AssertionError();
     }
@@ -110,20 +116,33 @@ public class ServletLogin extends HttpServlet {
       if (obj.logintrabajdor(user, pass).getNombretrabajador() == null) {
         request.setAttribute("dato", error);
         request.getRequestDispatcher("/index.jsp").forward(request, response);
+        
       } else {
-        request.setAttribute("id", obj.logintrabajdor(user, pass).getIdtrabajador());
-        request.setAttribute("nombre", obj.logintrabajdor(user, pass).getNombretrabajador());
-        request.setAttribute("apellido", obj.logintrabajdor(user, pass).getApellidopaternotrabajador());
-        request.setAttribute("priv", obj.logintrabajdor(user, pass).getIdtipotrabajador());
+       
+        HttpSession session= request.getSession();
+        session.setAttribute("usuarioTrabajador", obj.logintrabajdor(user, pass));
         request.getRequestDispatcher("/home.jsp").forward(request, response);
       }
     }
     else {
-        request.setAttribute("id", obj.logincliente(user, pass).getIdcliente());
-        request.setAttribute("nombre", obj.logincliente(user, pass).getNombrecliente());
-        request.setAttribute("apellido", obj.logincliente(user, pass).getApellidopaternocliente());
-        request.setAttribute("priv", privclientes);
+        HttpSession session= request.getSession();
+        session.setAttribute("usuarioCliente", obj.logincliente(user, pass));
         request.getRequestDispatcher("/home.jsp").forward(request, response);
       }
+  }
+  protected void insertaLogin(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+    Cliente a = new Cliente();
+    a.setDni(Integer.parseInt(request.getParameter("dni")));
+    a.setNombrecliente(request.getParameter("nombrec"));
+    a.setApellidopaternocliente(request.getParameter("apellidopa"));
+    a.setApellidomaternocliente(request.getParameter("apellidoma"));
+    a.setNcelularescliente(request.getParameter("celular"));
+    a.setCorreocliente(request.getParameter("correo"));
+    a.setFechanacimientocliente(request.getParameter("nacimiento"));
+    a.setDireccion(request.getParameter("direccion"));
+    a.setContrasenacliente(request.getParameter("contrasena"));
+    obj1.insertaCliente(a);
+    request.getRequestDispatcher("/index.jsp").forward(request, response);
   }
 }

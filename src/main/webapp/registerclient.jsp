@@ -1,77 +1,69 @@
 <%-- 
-    Document   : client-list
-    Created on : 27 may. 2022, 17:30:42
-    Author     : LENOVO
+    Document   : registerclient
+    Created on : 3 jul. 2022, 11:31:56
+    Author     : Jean Pool Mendoza Sacachipana 
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Nuevo cliente</title>
+    <title>Login</title>
+
     <%@include file="libreria.jsp" %>
-
-
   </head>
   <body>
-
-    <!-- Main container -->
-    <main class="full-box main-container">
-      <!-- Nav lateral -->
-      <%@include file="Nav-Bar.jsp" %>
-      <!-- Page content -->
-      <section class="full-box page-content">
-        <nav class="full-box navbar-info">
-          <a href="#" class="float-left show-nav-lateral">
-            <i class="fas fa-exchange-alt"></i>
-          </a>
-          <a href="user-update.jsp">
-            <i class="fas fa-user-cog"></i>
-          </a>
-          <a href="#" class="btn-exit-system">
-            <i class="fas fa-power-off"></i>
-          </a>
-        </nav>
-
-        <!-- Page header -->
-        <%@include file="client-header.jsp" %>
-
-        <!-- Content here-->
-        <div class="container-fluid">
-          <form action="ServletCliente" class="form-neon" method="post">
-            <input type="hidden" name="opc" value="1">
-            
-            <fieldset>
-              <legend><i class="fas fa-user"></i> &nbsp; Información básica</legend>
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-12 col-md-6">
-                    <div class="form-group">
+    <%
+      String dato = (String) request.getAttribute("dato");
+      String msg = "";
+      if (dato == null) {
+        msg = "";
+      } else {
+        msg = dato;
+      }
+    %>
+    <div class="login-container">
+      <div class="login-content">
+        <p class="text-center">
+          Ingresa tus datos para registrarte
+        </p>
+        <form action="ServletLogin">
+          <input type="hidden" name="opc" value="2">
+          <p><%=msg%></p>
+          
+            <div class="row">
+                <div class="col-6 col-md-6">
+                <div class="form-group">
                       <label for="cliente_dni" class="bmd-label-floating">DNI</label>
                       <input type="text" pattern="[a-zA-Z0-9-]{1,27}" class="form-control" name="dni" id="cliente_dni" maxlength="27">
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-6">
+                </div>
+                </div>
+                <div class="col-6 col-md-6">
                     <div class="form-group">
                       <label for="cliente_nombre" class="bmd-label-floating">Nombre</label>
                       <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" id="cliente_nombre" name="nombrec" maxlength="40">
                     </div>
                   </div>
-                  <div class="col-12 col-md-4">
+              </div>
+          <div class="row">
+                  <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="cliente_apellidopa" class="bmd-label-floating">Apellido Paterno</label>
                       <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" id="cliente_apellido" name="apellidopa" maxlength="40">
                     </div>
                   </div>
-                  <div class="col-12 col-md-4">
+                  <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="cliente_apellidoma" class="bmd-label-floating">Apellido Materno</label>
                       <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" id="cliente_apellido" name="apellidoma" maxlength="40">
                     </div>
                   </div>
-                  <div class="col-12 col-md-4">
+              </div>
+          <div class="row">
+                  <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="cliente_telefono" class="bmd-label-floating">Teléfono</label>
                       <input type="text" pattern="[0-9()+]{1,20}" class="form-control" id="cliente_telefono" name="celular" maxlength="20">
@@ -83,38 +75,33 @@
                       <input type="text" class="form-control" id="cliente_correo" name="correo" maxlength="40">
                     </div>
                   </div>
-                  <div class="col-12 col-md-4">
+               </div>
+          <div class="row">
+                  <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="cliente_nacimiento" class="bmd-label-floating">Nacimiento</label>
                       <input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" id="cliente_nacimiento" name="nacimiento" maxlength="150">
                     </div>
                   </div>                                                                     
-                  <div class="col-12 col-md-4">
+                  <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="cliente_direccion" class="bmd-label-floating">Direccion</label>
                       <input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" id="cliente_direccion" name="direccion" maxlength="20">
                     </div>
                   </div>
-                  <div class="col-12 col-md-4">
+               </div>
+          <div class="row">
+                  <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="cliente_contrasena" class="bmd-label-floating">Contraseña</label>
                       <input type="password" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" id="cliente_contrasena" name="contrasena" maxlength="150">
                     </div>
                   </div>
-                </div>
-              </div>
-            </fieldset>
-            <br><br><br>
-            <p class="text-center" style="margin-top: 40px;">
-              <button type="reset" class="btn btn-raised btn-secondary btn-sm"><i class="fas fa-paint-roller"></i> &nbsp; LIMPIAR</button>
-              &nbsp; &nbsp;
-              <button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp; GUARDAR</button>
-            </p>
-          </form>
-        </div>	
-
-      </section>
-    </main>
+          </div>
+          <button class="btn-login" type="submit">Registrarme!</button>
+        </form>
+      </div>
+    </div>
 
 
     <!--=============================================
@@ -135,9 +122,10 @@
     <!-- Bootstrap Material Design V4.0 -->
     <script src="./js/bootstrap-material-design.min.js" ></script>
     <script>$(document).ready(function () {
-        $('body').bootstrapMaterialDesign();
-      });</script>
+            $('body').bootstrapMaterialDesign();
+          });</script>
 
     <script src="./js/main.js" ></script>
   </body>
 </html>
+

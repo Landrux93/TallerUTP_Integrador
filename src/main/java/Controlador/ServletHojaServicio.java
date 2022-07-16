@@ -89,7 +89,7 @@ public class ServletHojaServicio extends HttpServlet {
     }// </editor-fold>
     protected void service(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
-            int op = Integer.parseInt(request.getParameter("opciontrab"));
+            int op = Integer.parseInt(request.getParameter("opcionhs"));
         //String accion = request.getParameter("accion");
         
         switch (op) {
@@ -107,6 +107,14 @@ public class ServletHojaServicio extends HttpServlet {
 protected void insertaHojaServicio(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
     
+    String id = request.getParameter("id");
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String privilegio = request.getParameter("priv");
+    request.setAttribute("id", id);
+    request.setAttribute("nombre", nombre);
+    request.setAttribute("apellido", apellido);
+    request.setAttribute("priv", privilegio);
     HojaServicio hoja1= new HojaServicio();
     hoja1.setIdtipohojaservicio(request.getParameter("tipohojaservicio"));
     hoja1.setIdusuario(request.getParameter("usuario"));
@@ -117,7 +125,7 @@ protected void insertaHojaServicio(HttpServletRequest request, HttpServletRespon
     ModeloHojaServicio modehs= new ModeloHojaServicio();
     modehs.insertaHojaServicio(hoja1);
     //(request, response);
-    //request.getRequestDispatcher("/reservation-new.jsp").forward(request, response);
-    //(request, response);
+    request.getRequestDispatcher("/hojaservicionew.jsp").forward(request, response);
+    //listaTrabajador(request, response);
   }
 }
