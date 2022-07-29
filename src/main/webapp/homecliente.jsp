@@ -10,7 +10,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>INICIO</title>
+    <title>DASHBOARD CLIENTE</title>
     <%@include file="libreria.jsp" %>
 
   </head>
@@ -19,7 +19,7 @@
     <!-- Main container -->
     <main class="full-box main-container">
       <!-- Nav lateral -->
-      <%@include file="Nav-Bar.jsp" %>
+      <%@include file="navbar1.jsp" %>
       <!-- Page content -->
       <section class="full-box page-content">
         <nav class="full-box navbar-info">
@@ -48,37 +48,22 @@
         <div class="full-box tile-container">
 
           <a href="ServletCliente?opc=4" class="tile">
-            <div class="tile-tittle">Clientes</div>
+            <div class="tile-tittle">CITAS</div>
             <div class="tile-icon">
               <i class="fas fa-users fa-fw"></i>
-              <p>5 Registrados</p>
+              <p>5 CITAS</p>
             </div>
           </a>
 
           <a href="ServletRepuesto?opc=4" class="tile">
-            <div class="tile-tittle">Repuestos</div>
+            <div class="tile-tittle">REPORTES</div>
             <div class="tile-icon">
               <i class="fas fa-pallet fa-fw"></i>
-              <p>9 Registrados</p>
+              <p> 2 REPORTES</p>
             </div>
           </a>
 
-          <a href="reservation-list.jsp" class="tile">
-            <div class="tile-tittle">CITAS</div>
-            <div class="tile-icon">
-              <i class="fas fa-file-invoice-dollar fa-fw"></i>
-              <p>10 Registrados</p>
-            </div>
-          </a>
-
-          <a href="user-list.jsp" class="tile">
-            <div class="tile-tittle">Técnicos</div>
-            <div class="tile-icon">
-              <i class="fas fa-user-secret fa-fw"></i>
-              <p>5 Registrados</p>
-            </div>
-          </a>
-
+          
         </div>
 
 

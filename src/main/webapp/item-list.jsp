@@ -36,7 +36,7 @@
             <a href="user-update.jsp">
               <i class="fas fa-user-cog"></i>
             </a>
-            <a href="#" class="btn-exit-system">
+            <a href="ServletLogout?logout=1" class="btn-exit-system">
               <i class="fas fa-power-off"></i>
             </a>
           </nav>
@@ -61,7 +61,7 @@
                 <tbody>
 
                   <%
-                    List<Repuesto> lista = (List<Repuesto>) request.getAttribute("repuestos");
+                    List<Repuesto> lista = (List<Repuesto>) request.getAttribute("listaRepuesto");
                     if (lista != null) {
                       for (Repuesto x : lista) {
                         out.print("<tr class= \"text-center\" ><td>" + x.getIdrepuesto()+ "<td>" + x.getNombrerepuesto()+"<td>" + x.getCostorepuesto()+ "<td>" + x.getStock() );

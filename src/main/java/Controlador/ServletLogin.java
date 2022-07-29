@@ -5,6 +5,7 @@
 package Controlador;
 
 import Entidad.*;
+import Mail.Mail;
 import Modelo.ModeloCliente;
 import Modelo.ModeloLogin;
 import java.io.IOException;
@@ -110,24 +111,24 @@ ModeloCliente obj1 = new ModeloCliente();
     ModeloLogin obj = new ModeloLogin();
     String user = request.getParameter("usuario");
     String pass = request.getParameter("clave");
-    String privclientes = "TR0000";
     String error = "Usuario o clave incorrecta";
     if (obj.logincliente(user, pass).getNombrecliente() == null) {
       if (obj.logintrabajdor(user, pass).getNombretrabajador() == null) {
         request.setAttribute("dato", error);
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/login.jsp").forward(request, response);
         
       } else {
        
         HttpSession session= request.getSession();
         session.setAttribute("usuarioTrabajador", obj.logintrabajdor(user, pass));
+        
         request.getRequestDispatcher("/home.jsp").forward(request, response);
       }
     }
     else {
         HttpSession session= request.getSession();
         session.setAttribute("usuarioCliente", obj.logincliente(user, pass));
-        request.getRequestDispatcher("/home.jsp").forward(request, response);
+        request.getRequestDispatcher("/homecliente.jsp").forward(request, response);
       }
   }
   protected void insertaLogin(HttpServletRequest request, HttpServletResponse response)
@@ -142,7 +143,10 @@ ModeloCliente obj1 = new ModeloCliente();
     a.setFechanacimientocliente(request.getParameter("nacimiento"));
     a.setDireccion(request.getParameter("direccion"));
     a.setContrasenacliente(request.getParameter("contrasena"));
+    Mail mailregister= new Mail();
+    System.out.println(mailregister.sendMain(request.getParameter("correo"),"Mensaje de Bienvenida", "Bienbenido al Taller UTP"));
     obj1.insertaCliente(a);
-    request.getRequestDispatcher("/index.jsp").forward(request, response);
+    
+    request.getRequestDispatcher("/login.jsp").forward(request, response);
   }
 }

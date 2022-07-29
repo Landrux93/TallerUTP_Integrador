@@ -28,7 +28,7 @@
           <a href="#" class="float-left show-nav-lateral">
             <i class="fas fa-exchange-alt"></i>
           </a>
-           <a href="#" class="btn-exit-system">
+           <a href="ServletLogout?logout=1" class="btn-exit-system">
             <i class="fas fa-power-off"></i>
           </a>
         </nav>

@@ -27,7 +27,7 @@ public class Mail {
 	 * @return: String
 	 * @throws 
 	 */
-	public static String sendMain(String to, String subject, String body) {
+	public  String sendMain(String to, String subject, String body) {
 		 String from = "u20221875@utp.edu.pe"; // Dirección de correo electrónico del remitente
 		 // String to = "×××××@qq.com"; // Correo electrónico del destinatario
 		 // Obtiene las propiedades del sistema, que se utilizan principalmente para establecer parámetros relacionados con el correo electrónico.

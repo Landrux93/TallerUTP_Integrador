@@ -127,14 +127,6 @@ public class ServletCitas extends HttpServlet {
     cita.setIdtipocita(request.getParameter("item_tipocita"));
     cita.setIdcliente(request.getParameter("item_cliente"));
     cita.setEstado(request.getParameter("item_estado"));
-    String id = request.getParameter("id");
-    String nombre = request.getParameter("nombre");
-    String apellido = request.getParameter("apellido");
-    String privilegio = request.getParameter("priv");
-    request.setAttribute("id", id);
-    request.setAttribute("nombre", nombre);
-    request.setAttribute("apellido", apellido);
-    request.setAttribute("priv", privilegio);
     ModeloCita modcita = new ModeloCita();
     modcita.insertaCita(cita);
     LlenarDatos(request, response);

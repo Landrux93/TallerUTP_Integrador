@@ -14,6 +14,7 @@ import Entidad.*;
 import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import Mail.Mail;
 
 /**
  *
@@ -121,15 +122,10 @@ public class ServletCliente extends HttpServlet {
     a.setFechanacimientocliente(request.getParameter("nacimiento"));
     a.setDireccion(request.getParameter("direccion"));
     a.setContrasenacliente(request.getParameter("contrasena"));
-    String id = request.getParameter("id");
-    String nombre = request.getParameter("nombre");
-    String apellido = request.getParameter("apellido");
-    String privilegio = request.getParameter("priv");
-    request.setAttribute("id", id);
-    request.setAttribute("nombre", nombre);
-    request.setAttribute("apellido", apellido);
-    request.setAttribute("priv", privilegio);
+    Mail mailregister= new Mail();
+    mailregister.sendMain(request.getParameter("correo"),"Mensaje de Bienvenida", "Bienbenido al Taller UTP");
     obj.insertaCliente(a);
+    
     lista(request, response);
   }
 

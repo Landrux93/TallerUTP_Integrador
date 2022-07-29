@@ -155,7 +155,7 @@ public class ServletRepuesto extends HttpServlet {
           throws ServletException, IOException {
     ModeloRepuesto repuesto = new ModeloRepuesto();
     List<Repuesto> lista = repuesto.listaRepuesto("");
-    
+    request.setAttribute("listaRepuesto", lista);
     request.getRequestDispatcher("/item-list.jsp").forward(request, response);
   }
 
