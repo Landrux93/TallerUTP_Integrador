@@ -84,7 +84,7 @@
                   <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="cliente_correo" class="bmd-label-floating">Correo</label>
-                      <input type="email" pattern ="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="cliente_correo" name="correo" maxlength="40"required="required">
+                      <input type="email" pattern ="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="cliente_correo" name="correo" maxlength="40" required="required">
                     </div>
                   </div>
                 </div>

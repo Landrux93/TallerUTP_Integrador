@@ -85,7 +85,7 @@
                     <div class="col-12 col-md-4">
                       <div class="form-group">
                         <label for="item_stock" class="bmd-label-floating">Stock</label>
-                        <input type="number" pattern="[0-9]{1,9}" class="form-control" name="stock" id="stock" maxlength="9"required="required">
+                        <input type="number" pattern="[0-9]{1,9}" class="form-control" name="stock" id="stock" maxlength="9" required="required">
                       </div>
                     </div>
                   </div>

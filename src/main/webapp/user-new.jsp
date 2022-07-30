@@ -117,7 +117,7 @@
                   <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="trabajador_telefono" class="bmd-label-floating">Celular</label>
-                      <input type="tel" pattern="[0-9()+]{1,9}" minlength="9" maxlength="9" class="form-control" name="trabajador_telefono" id="trabajador_telefono" maxlength="50" required="required">
+                      <input type="tel" pattern="[0-9()+]{1,9}" minlength="9" maxlength="9" class="form-control" name="trabajador_telefono" id="trabajador_telefono" required="required">
                     </div>
                   </div>
 
@@ -132,7 +132,7 @@
                   <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="trabajador_passwd" class="bmd-label-floating">Contraseña</label>
-                      <input type="password" class="form-control" name="trabajador_passwd" id="trabajador_passwd" maxlength="20"required="required">
+                      <input type="password" class="form-control" name="trabajador_passwd" id="trabajador_passwd" maxlength="20" required="required">
                     </div>
                   </div>
                 </div>
