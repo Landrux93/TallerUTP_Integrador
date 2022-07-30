@@ -170,14 +170,10 @@
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<image>
-				<reportElement x="0" y="0" width="181" height="54" uuid="8b34f42e-f6ad-45e7-85f5-65300bf8d855"/>
-				<imageExpression><![CDATA["C:\\Users\\ASUS\\OneDrive - Universidad Tecnologica del Peru\\Pictures\\LOGOUTP.png"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement x="181" y="54" width="182" height="20" uuid="08aebc7c-ac95-436e-9876-0bf909b13431"/>
+				<reportElement x="181" y="20" width="270" height="45" uuid="08aebc7c-ac95-436e-9876-0bf909b13431"/>
 				<textElement>
-					<font size="14" isBold="true"/>
+					<font size="20" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TALLER UTP REPORTES]]></text>
 			</staticText>
@@ -185,12 +181,19 @@
 				<reportElement x="455" y="0" width="100" height="20" uuid="2b7b7399-63d8-4c63-bb44-92e9507f9038"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="11" y="9" width="156" height="45" uuid="fbe8584b-0443-47dd-a0c6-26e98aa2efda"/>
+				<imageExpression><![CDATA["C:\\Users\\LENOVO\\Desktop\\UTP 2022 I\\INTEGRADOR I\\AVANCE FINAL\\imagereport\\utp.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="29" splitType="Stretch">
 			<staticText>
-				<reportElement x="196" y="10" width="167" height="19" uuid="afd0749e-6dd7-497e-bf3d-797a6f6e8424"/>
+				<reportElement x="181" y="10" width="202" height="19" uuid="afd0749e-6dd7-497e-bf3d-797a6f6e8424"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
 				<text><![CDATA[LISTA DE TRABAJADORES]]></text>
 			</staticText>
 		</band>
@@ -199,9 +202,9 @@
 		<band height="61" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="156" splitType="Stretch">
 			<componentElement>
-				<reportElement key="table 4" style="table 4" x="0" y="11" width="545" height="114" uuid="c86f86ab-1f04-47e4-9a5e-f0056d87d885"/>
+				<reportElement key="table 4" style="table 4" x="0" y="0" width="545" height="156" uuid="c86f86ab-1f04-47e4-9a5e-f0056d87d885"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="New Dataset 1" uuid="f09c5975-f25b-4b8f-8245-f4eeeb6e2e07">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
@@ -240,7 +243,7 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="90" uuid="9c7786de-ffe6-4eda-b13a-ecb3dd60a08e">
+					<jr:column width="100" uuid="9c7786de-ffe6-4eda-b13a-ecb3dd60a08e">
 						<jr:tableHeader style="table 4_TH" height="30" rowSpan="1"/>
 						<jr:tableFooter style="table 4_TH" height="30" rowSpan="1"/>
 						<jr:columnHeader style="table 4_CH" height="30" rowSpan="1">
