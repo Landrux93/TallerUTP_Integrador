@@ -76,18 +76,33 @@
 								</li>
 							</ul>
 						</li>
-                                                <li>
-							<a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Repuestos <i class="fas fa-chevron-down"></i></a>
+                                                
+                                                                                                <li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-users fa-fw"></i> &nbsp; Clientes <i class="fas fa-chevron-down"></i></a>
 							<ul>
 								<li>
-									<a href="item-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Repuestos</a>
+									<a href="client-new.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Cliente</a>
 								</li>
 								<li>
-									<a href="ServletRepuesto?opc=4"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Control de Repuestos</a>
+									<a href="ServletCliente?opc=4"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de clientes</a>
 								</li>
 								<li>
-									<a href="item-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Repuesto</a>
+									<a href="client-search.jsp"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar cliente</a>
 								</li>
+							</ul>
+						</li>
+                                                
+                                                <li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Hoja de servicio <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="hojaserviciolist.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Servicio</a>
+								</li>
+                                                                <li>
+									<a href="item-list.jsp"><i class="fas fa-plus fa-fw"></i> &nbsp; Repuesto</a>
+								</li>
+								
+
 							</ul>
 						</li>
                                                 <li>
