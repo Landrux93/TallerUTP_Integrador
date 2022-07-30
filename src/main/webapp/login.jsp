@@ -37,11 +37,11 @@
           <p><%=msg%></p>
           <div class="form-group">
             <label for="UserName" class="bmd-label-floating"><i class="fas fa-user-secret"></i> &nbsp; Usuario</label>
-            <input type="text" class="form-control" id="UserName" name="usuario" maxlength="35">
+            <input type="email" pattern ="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="UserName" name="usuario" maxlength="35"required="required">
           </div>
           <div class="form-group">
             <label for="UserPassword" class="bmd-label-floating"><i class="fas fa-key"></i> &nbsp; Contraseña</label>
-            <input type="password" class="form-control" id="UserPassword" name="clave" maxlength="200">
+            <input type="password" class="form-control" id="UserPassword" name="clave" maxlength="200"required="required">
           </div>
           <button class="btn-login" type="submit">Ingresar</button>
         </form>

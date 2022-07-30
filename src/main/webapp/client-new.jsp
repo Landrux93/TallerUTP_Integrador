@@ -42,67 +42,74 @@
         <div class="container-fluid">
           <form action="ServletCliente" class="form-neon" method="post">
             <input type="hidden" name="opc" value="1">
-            
+
             <fieldset>
               <legend><i class="fas fa-user"></i> &nbsp; Información básica</legend>
               <div class="container-fluid">
                 <div class="row">
-                  <div class="col-12 col-md-6">
+                  <div class="col-6 col-md-6">
                     <div class="form-group">
                       <label for="cliente_dni" class="bmd-label-floating">DNI</label>
-                      <input type="text" pattern="[a-zA-Z0-9-]{1,27}" class="form-control" name="dni" id="cliente_dni" maxlength="27">
+                      <input type="text" pattern="[0-9()+]{1,8}" class="form-control" name="dni" id="cliente_dni" minlength="8" maxlength="8" required="required">
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-6">
+                    <div class="form-group">
+                      <label for="cliente_nombre" class="bmd-label-floating">Nombre</label>
+                      <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" id="cliente_nombre" name="nombrec" maxlength="40" required="required">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label for="cliente_apellidopa" class="bmd-label-floating">Apellido Paterno</label>
+                      <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" id="cliente_apellido" name="apellidopa" maxlength="40" required="required">
                     </div>
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="form-group">
-                      <label for="cliente_nombre" class="bmd-label-floating">Nombre</label>
-                      <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" id="cliente_nombre" name="nombrec" maxlength="40">
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <div class="form-group">
-                      <label for="cliente_apellidopa" class="bmd-label-floating">Apellido Paterno</label>
-                      <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" id="cliente_apellido" name="apellidopa" maxlength="40">
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <div class="form-group">
                       <label for="cliente_apellidoma" class="bmd-label-floating">Apellido Materno</label>
-                      <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" id="cliente_apellido" name="apellidoma" maxlength="40">
+                      <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" id="cliente_apellido" name="apellidoma" maxlength="40" required="required">
                     </div>
                   </div>
-                  <div class="col-12 col-md-4">
+                </div>
+                <div class="row">
+                  <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="cliente_telefono" class="bmd-label-floating">Teléfono</label>
-                      <input type="text" pattern="[0-9()+]{1,20}" class="form-control" id="cliente_telefono" name="celular" maxlength="20">
+                      <input type="tel" pattern="[0-9()+]{1,9}" class="form-control" id="cliente_telefono" name="celular" minlength="9" maxlength="9" required="required">
                     </div>
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="form-group">
                       <label for="cliente_correo" class="bmd-label-floating">Correo</label>
-                      <input type="text" class="form-control" id="cliente_correo" name="correo" maxlength="40">
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <div class="form-group">
-                      <label for="cliente_nacimiento" class="bmd-label-floating">Nacimiento</label>
-                      <input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" id="cliente_nacimiento" name="nacimiento" maxlength="150">
-                    </div>
-                  </div>                                                                     
-                  <div class="col-12 col-md-4">
-                    <div class="form-group">
-                      <label for="cliente_direccion" class="bmd-label-floating">Direccion</label>
-                      <input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" id="cliente_direccion" name="direccion" maxlength="20">
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <div class="form-group">
-                      <label for="cliente_contrasena" class="bmd-label-floating">Contraseña</label>
-                      <input type="password" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" id="cliente_contrasena" name="contrasena" maxlength="150">
+                      <input type="email" pattern ="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="cliente_correo" name="correo" maxlength="40"required="required">
                     </div>
                   </div>
                 </div>
-              </div>
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label for="cliente_nacimiento" class="bmd-label-floating">Nacimiento</label>
+                      <input type="date" data-date-format="YYYY MM DD" class="form-control" id="cliente_nacimiento" name="nacimiento" required="required">
+                    </div>
+                  </div>                                                                     
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label for="cliente_direccion" class="bmd-label-floating">Direccion</label>
+                      <input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" id="cliente_direccion" name="direccion" maxlength="20" required="required">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <label for="cliente_contrasena" class="bmd-label-floating">Contraseña</label>
+                      <input type="password" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ#- ]{1,150}" class="form-control" id="cliente_contrasena" name="contrasena" maxlength="150" required="required">
+                    </div>
+                  </div>
+                </div>
             </fieldset>
             <br><br><br>
             <p class="text-center" style="margin-top: 40px;">
