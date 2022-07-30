@@ -129,19 +129,19 @@
                     <div class="col-12 col-md-4">
                       <div class="form-group">
                         <label for="diagnostico" class="bmd-label-floating">Diagnostico</label>
-                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="diagnostico" id="diagnostico" maxlength="140" required="required>
+                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="diagnostico" id="diagnostico" maxlength="140" required="required">
                       </div>
                     </div><!-- comment -->
                     <div class="col-12 col-md-4">
                       <div class="form-group">
                         <label for="pagoneto" class="bmd-label-floating">pago neto</label>
-                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="pagoneto" id="pagoneto" maxlength="140" required="required>
+                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="pagoneto" id="pagoneto" maxlength="140" required="required">
                       </div>
                     </div><!-- comment -->
                     <div class="col-12 col-md-4">
                       <div class="form-group">
                         <label for="igv" class="bmd-label-floating">IGV</label>
-                        <input type="text"  class="form-control" name="igv" id="igv" maxlength="140" required="required>
+                        <input type="text"  class="form-control" name="igv" id="igv" maxlength="140" required="required">
                       </div>
                     </div>
                   </div>
