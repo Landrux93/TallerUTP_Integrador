@@ -79,7 +79,7 @@
                     <div class="col-12 col-md-4">
                       <div class="form-group">
                         <label for="item_costo" class="bmd-label-floating">Cliente</label>
-                        <input type="text" pattern="[0-9()+]{1,8}" class="form-control" name="costo" id="costo" maxlength="140">
+                        <input type="text" pattern="[0-9()+]{1,8}" class="form-control" name="costo" id="costo" maxlength="140" required="required">
                       </div>
                     </div>
                     
