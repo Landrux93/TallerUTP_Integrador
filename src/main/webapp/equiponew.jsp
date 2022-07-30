@@ -55,31 +55,31 @@
                     <div class="col-12 col-md-4">
                       <div class="form-group">
                         <label for="item_nombre" class="bmd-label-floating">Nombre del equipo</label>
-                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="nombre" id="nombre" maxlength="140">
+                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="nombre" id="nombre" maxlength="140" required="required">
                       </div>
                     </div>
                     <div class="col-12 col-md-4">
                       <div class="form-group">
                         <label for="item_marca" class="bmd-label-floating">Marca</label>
-                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="marca" id="marca" maxlength="140">
+                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="marca" id="marca" maxlength="140" required="required">
                       </div>
                     </div>
                     <div class="col-12 col-md-4">
                       <div class="form-group">
                         <label for="item_serie" class="bmd-label-floating">Modelo</label>
-                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="serie" id="serie" maxlength="140">
+                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="serie" id="serie" maxlength="140" required="required">
                       </div>
                     </div><!-- comment -->
                     <div class="col-12 col-md-4">
                       <div class="form-group">
                         <label for="item_modelo" class="bmd-label-floating">Detalles del equipo</label>
-                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="modelo" id="modelo" maxlength="140">
+                        <input type="text" pattern="[a-zA-záéíóúÁÉÍÓÚñÑ0-9 ]{1,140}" class="form-control" name="modelo" id="modelo" maxlength="140" required="required">
                       </div>
                     </div><!-- comment -->
                     <div class="col-12 col-md-4">
                       <div class="form-group">
                         <label for="item_costo" class="bmd-label-floating">Cliente</label>
-                        <input type="text"  class="form-control" name="costo" id="costo" maxlength="140">
+                        <input type="text" pattern="[0-9()+]{1,8}" class="form-control" name="costo" id="costo" maxlength="140">
                       </div>
                     </div>
                     
